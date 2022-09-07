@@ -1,8 +1,8 @@
 // import
 import Dashboard from "views/Dashboard/Dashboard.js";
-import Tables from "views/Dashboard/Tables.js";
+import Sudents from "views/Dashboard/Tables.js";
 import Billing from "views/Dashboard/Billing.js";
-import RTLPage from "views/RTL/RTLPage.js";
+// import RTLPage from "views/RTL/RTLPage.js";
 import Profile from "views/Dashboard/Profile.js";
 import SignIn from "views/Pages/SignIn.js";
 import SignUp from "views/Pages/SignUp.js";
@@ -27,29 +27,29 @@ var dashRoutes = [
     layout: "/admin",
   },
   {
-    path: "/tables",
-    name: "Tables",
+    path: "/Sudents",
+    name: "Sudents",
     rtlName: "لوحة القيادة",
     icon: <StatsIcon color='inherit' />,
-    component: Tables,
+    component: Sudents,
     layout: "/admin",
   },
-  {
-    path: "/billing",
-    name: "Billing",
-    rtlName: "لوحة القيادة",
-    icon: <CreditIcon color='inherit' />,
-    component: Billing,
-    layout: "/admin",
-  },
-  {
-    path: "/rtl-support-page",
-    name: "RTL",
-    rtlName: "آرتيإل",
-    icon: <SupportIcon color='inherit' />,
-    component: RTLPage,
-    layout: "/rtl",
-  },
+  // {
+  //   path: "/billing",
+  //   name: "Billing",
+  //   rtlName: "لوحة القيادة",
+  //   icon: <CreditIcon color='inherit' />,
+  //   component: Billing,
+  //   layout: "/admin",
+  // },
+  // {
+  //   path: "/rtl-support-page",
+  //   name: "RTL",
+  //   rtlName: "آرتيإل",
+  //   icon: <SupportIcon color='inherit' />,
+  //   component: RTLPage,
+  //   layout: "/rtl",
+  // },
   {
     name: "ACCOUNT PAGES",
     category: "account",
