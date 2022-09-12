@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState }  from "react";
 // Chakra imports
 import {
   Box,
@@ -13,6 +13,10 @@ import {
   Text,
   DarkMode,
 } from "@chakra-ui/react";
+import { Select } from '@chakra-ui/react'
+import 'react-phone-number-input/style.css'
+import './SignIn.css'
+import PhoneInput from 'react-phone-number-input'
 
 // Assets
 import signInImage from "assets/img/signInImage.png";
@@ -22,6 +26,8 @@ import AuthFooter from "components/Footer/AuthFooter";
 import GradientBorder from "components/GradientBorder/GradientBorder";
 
 function SignIn() {
+  const [value, setValue] = useState()
+
   const titleColor = "white";
   const textColor = "gray.400";
 
@@ -59,15 +65,72 @@ function SignIn() {
               color={textColor}
               fontWeight='bold'
               fontSize='14px'>
-              Enter your email and password to sign in
+              Enter Your Information To Join our Community
             </Text>
+            <Flex>
             <FormControl>
               <FormLabel
                 ms='4px'
                 fontSize='sm'
                 fontWeight='normal'
                 color='white'>
-                Email
+                FirstName<span className="mendatory">*</span> 
+              </FormLabel>
+              <GradientBorder
+                mb='24px'
+                w={{ base: "100%", lg: "fit-content" }}
+                borderRadius='20px'>
+                <Input
+                
+                  color='white'
+                  bg='rgb(19,21,54)'
+                  border='transparent'
+                  borderRadius='20px'
+                  fontSize='sm'
+                  size='lg'
+                  w={{ base: "100%", md: "160px" }}
+                  maxW='100%'
+                  h='46px'
+                  type='text'
+                  placeholder='Your FirstName'
+                />
+              </GradientBorder>
+            </FormControl>
+            <FormControl>
+              <FormLabel
+                ms='4px'
+                fontSize='sm'
+                fontWeight='normal'
+                color='white'>
+                LastName<span className="mendatory">*</span> 
+              </FormLabel>
+              <GradientBorder
+                mb='24px'
+                w={{ base: "100%", lg: "fit-content" }}
+                borderRadius='20px'>
+                <Input
+                  color='white'
+                  bg='rgb(19,21,54)'
+                  border='transparent'
+                  borderRadius='20px'
+                  fontSize='sm'
+                  size='lg'
+                  w={{ base: "100%", md: "160px" }}
+                  maxW='100%'
+                  h='46px'
+                  type='text'
+                  placeholder='Your LastName'
+                />
+              </GradientBorder>
+            </FormControl>
+            </Flex>
+            <FormControl>
+              <FormLabel
+                ms='4px'
+                fontSize='sm'
+                fontWeight='normal'
+                color='white'>
+                Email<span className="mendatory">*</span> 
               </FormLabel>
               <GradientBorder
                 mb='24px'
@@ -83,6 +146,7 @@ function SignIn() {
                   w={{ base: "100%", md: "346px" }}
                   maxW='100%'
                   h='46px'
+                  type='email'
                   placeholder='Your email adress'
                 />
               </GradientBorder>
@@ -93,7 +157,7 @@ function SignIn() {
                 fontSize='sm'
                 fontWeight='normal'
                 color='white'>
-                Password
+                Adress<span className="mendatory">*</span> 
               </FormLabel>
               <GradientBorder
                 mb='24px'
@@ -108,23 +172,60 @@ function SignIn() {
                   size='lg'
                   w={{ base: "100%", md: "346px" }}
                   maxW='100%'
-                  type='password'
-                  placeholder='Your password'
+                  type='text'
+                  placeholder='Your Adress'
                 />
               </GradientBorder>
-            </FormControl>
-            <FormControl display='flex' alignItems='center'>
-              <DarkMode>
-                <Switch id='remember-login' colorScheme='brand' me='10px' />
-              </DarkMode>
+
               <FormLabel
-                htmlFor='remember-login'
-                mb='0'
-                ms='1'
+                ms='4px'
+                fontSize='sm'
                 fontWeight='normal'
                 color='white'>
-                Remember me
+                PhoneNumber<span className="mendatory">*</span> 
               </FormLabel>
+              <GradientBorder
+                mb='24px'
+                w={{ base: "100%", lg: "fit-content" }}
+                borderRadius='20px'>
+                 <PhoneInput
+                   placeholder="Enter Your phone number"
+                  defaultCountry="TN" 
+                  limitMaxLength='8'
+                  // type='number'
+                  value={value}
+                 onChange={setValue}
+                  />
+              </GradientBorder>
+                 {/* <MuiPhoneNumber defaultCountry={'us'} />, */}
+                 
+            </FormControl>
+            <FormLabel
+                ms='4px'
+                fontSize='sm'
+                fontWeight='normal'
+                color='white'>
+                Choise your Favoret Skills<span className="mendatory">*</span> 
+              </FormLabel>
+              <FormControl>
+              <GradientBorder
+                mb='24px'
+                w={{ base: "100%", lg: "fit-content" }}
+                borderRadius='20px'>
+             <Select placeholder='Select Your Skills' className="skills">
+  <option value='option1' className="yourselect">Full StackJavaScript Web Developer</option>
+  <option value='option2' className="yourselect">React Js</option>
+  <option value='option3' className="yourselect">Introduction To web1</option>
+</Select>
+              </GradientBorder>
+            </FormControl>
+          
+
+            <FormControl display='flex' alignItems='center'>
+              {/* <DarkMode>
+                <Switch id='remember-login' colorScheme='brand' me='10px' />
+              </DarkMode> */}
+            
             </FormControl>
             <Button
               variant='brand'
@@ -135,22 +236,8 @@ function SignIn() {
               h='45'
               mb='20px'
               mt='20px'>
-              SIGN IN
+              Join Us
             </Button>
-
-            <Flex
-              flexDirection='column'
-              justifyContent='center'
-              alignItems='center'
-              maxW='100%'
-              mt='0px'>
-              <Text color={textColor} fontWeight='medium'>
-                Don't have an account?
-                <Link color={titleColor} as='span' ms='5px' fontWeight='bold'>
-                  Sign Up
-                </Link>
-              </Text>
-            </Flex>
           </Flex>
         </Flex>
         <Box

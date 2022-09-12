@@ -1,0 +1,22 @@
+.welcomeparagaraphe {
+    color: white;
+    text-shadow: rgb(255 255 255 / 0%) 1px 0 10px;
+    font-size: x-large;
+    /* box-shadow: inset 0px -20px 50px 10px #e7eeee, 0px 0px 30px 6px #000000f3; */
+    /* background: white; */
+    text-align: center;
+}
+.nojja{
+    text-align: center;
+}
+#nojawelcome {
+    color: white;
+    font-size: x-large;
+    font-family: system-ui;
+    /* box-shadow: inset 0px -20px 50px 10px #fafafa, 0px 0px 30px 6px #3182ce; */
+    /* width: 234px; */
+    font-size: x-large;
+
+    /* text-align: center; */
+    /* margin-left: 40%; */
+}

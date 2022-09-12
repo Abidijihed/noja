@@ -49,14 +49,133 @@ import {
 	lineChartOptionsDashboard
 } from 'variables/charts';
 import { dashboardTableData, timelineData } from 'variables/general';
+import "./index.css"
+import { Carousel } from 'react-bootstrap';
 
 export default function Dashboard() {
 	return (
-		<Flex flexDirection='column' pt={{ base: '120px', md: '75px' }}>
-			<SimpleGrid columns={{ sm: 1, md: 2, xl: 4 }} spacing='24px'>
+		<Flex flexDirection='row' pt={{ base: '120px', md: '75px' }}  >
 	
-	
-			</SimpleGrid>
-		</Flex>
+
+	<Grid
+				templateColumns={{ sm: '1fr', lg: '1.7fr 1.3fr' }}
+				maxW={{ sm: '100%', md: '100%' }}
+				gap='24px'
+				mb='24px'>
+				{/* Sales Overview */}
+				<div id="earth"></div>
+
+				{/* Active Users */}
+				<Card p='16px'>
+					<CardBody>
+						<Flex direction='column' w='100%'>
+							<Box
+								bg='linear-gradient(126.97deg, #060C29 28.26%, rgba(4, 12, 48, 0.5) 91.2%)'
+								borderRadius='20px'
+								display={{ sm: 'flex', md: 'block' }}
+								justify={{ sm: 'center', md: 'flex-start' }}
+								align={{ sm: 'center', md: 'flex-start' }}
+								minH={{ sm: '180px', md: '220px' }}
+								p={{ sm: '0px', md: '22px' }}>
+								<BarChart
+									barChartOptions={barChartOptionsDashboard}
+									barChartData={barChartDataDashboard}
+								/>
+							</Box>
+							<Flex direction='column' mt='24px' mb='36px' alignSelf='flex-start'>
+								<Text fontSize='lg' color='#fff' fontWeight='bold' mb='6px'>
+									Active Users
+								</Text>
+								<Text fontSize='md' fontWeight='medium' color='gray.400'>
+									<Text as='span' color='green.400' fontWeight='bold'>
+										(+23%)
+									</Text>{' '}
+									than last week
+								</Text>
+							</Flex>
+							<SimpleGrid gap={{ sm: '12px' }} columns={4}>
+								<Flex direction='column'>
+									<Flex alignItems='center'>
+										<IconBox as='box' h={'30px'} w={'30px'} bg='brand.200' me='6px'>
+											<WalletIcon h={'15px'} w={'15px'} color='#fff' />
+										</IconBox>
+										<Text fontSize='sm' color='gray.400'>
+											Users
+										</Text>
+									</Flex>
+									<Text
+										fontSize={{ sm: 'md', lg: 'lg' }}
+										color='#fff'
+										fontWeight='bold'
+										mb='6px'
+										my='6px'>
+										32,984
+									</Text>
+									<Progress colorScheme='brand' bg='#2D2E5F' borderRadius='30px' h='5px' value={20} />
+								</Flex>
+								<Flex direction='column'>
+									<Flex alignItems='center'>
+										<IconBox as='box' h={'30px'} w={'30px'} bg='brand.200' me='6px'>
+											<RocketIcon h={'15px'} w={'15px'} color='#fff' />
+										</IconBox>
+										<Text fontSize='sm' color='gray.400'>
+											Clicks
+										</Text>
+									</Flex>
+									<Text
+										fontSize={{ sm: 'md', lg: 'lg' }}
+										color='#fff'
+										fontWeight='bold'
+										mb='6px'
+										my='6px'>
+										2.42m
+									</Text>
+									<Progress colorScheme='brand' bg='#2D2E5F' borderRadius='30px' h='5px' value={90} />
+								</Flex>
+								<Flex direction='column'>
+									<Flex alignItems='center'>
+										<IconBox as='box' h={'30px'} w={'30px'} bg='brand.200' me='6px'>
+											<CartIcon h={'15px'} w={'15px'} color='#fff' />
+										</IconBox>
+										<Text fontSize='sm' color='gray.400'>
+											Sales
+										</Text>
+									</Flex>
+									<Text
+										fontSize={{ sm: 'md', lg: 'lg' }}
+										color='#fff'
+										fontWeight='bold'
+										mb='6px'
+										my='6px'>
+										2,400$
+									</Text>
+									<Progress colorScheme='brand' bg='#2D2E5F' borderRadius='30px' h='5px' value={30} />
+								</Flex>
+								<Flex direction='column'>
+									<Flex alignItems='center'>
+										<IconBox as='box' h={'30px'} w={'30px'} bg='brand.200' me='6px'>
+											<StatsIcon h={'15px'} w={'15px'} color='#fff' />
+										</IconBox>
+										<Text fontSize='sm' color='gray.400'>
+											Items
+										</Text>
+									</Flex>
+									<Text
+										fontSize={{ sm: 'md', lg: 'lg' }}
+										color='#fff'
+										fontWeight='bold'
+										mb='6px'
+										my='6px'>
+										320
+									</Text>
+									<Progress colorScheme='brand' bg='#2D2E5F' borderRadius='30px' h='5px' value={50} />
+								</Flex>
+							</SimpleGrid>
+						</Flex>
+					</CardBody>
+				</Card>
+			</Grid>
+			</Flex>
+		
 	);
 }

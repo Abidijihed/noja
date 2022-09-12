@@ -195,7 +195,7 @@ function Sidebar(props) {
   var brand = (
     <Box pt={"25px"} mb='12px'>
       <Link
-        href={`${process.env.PUBLIC_URL}/#/`}
+        href={`${process.env.PUBLIC_URL}`}
         target='_blank'
         display='flex'
         lineHeight='100%'
@@ -241,8 +241,10 @@ function Sidebar(props) {
           <Box>{brand}</Box>
           <Stack direction='column' mb='40px'>
             <Box>{links}</Box>
+
           </Stack>
-          <SidebarHelp></SidebarHelp>
+          {/* <SidebarHelp></SidebarHelp> */}
+
         </Box>
       </Box>
     </Box>

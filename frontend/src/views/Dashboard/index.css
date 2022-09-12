@@ -1,0 +1,30 @@
+
+
+body {
+
+	background: rgb(2, 0, 34) ;
+}
+
+#earth {
+	position: relative;
+	width: 500px;
+	height: 500px;
+	border-radius: 50%;
+	background: transparent url("https://i.imgur.com/Qk4UXcU.png");
+	background-size: cover;
+	box-shadow: inset 0px -20px 50px 10px #e7eeee,
+        0px 0px 30px 6px #000000f3;
+	transform-style: preserve-3d;
+	transform: rotate(20deg);
+	animation: rotate 15s linear infinite;
+}
+
+@keyframes rotate {
+	0% {
+		background-position: 0 0;
+	}
+
+	100% {
+		background-position: 530px 0;
+	}
+}

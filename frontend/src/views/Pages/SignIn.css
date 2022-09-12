@@ -1,0 +1,36 @@
+.PhoneInputInput { 
+     background-color: rgb(19,21,54) !important;
+ border: transparent !important;
+    border-radius: 20px !important;
+   
+    width: 310px !important;
+
+    height: 46px;
+    color: white; 
+
+}
+.mendatory{
+    color:red;
+}
+.skills{
+    border: transparent !important;
+width: 354px !important;
+border-radius: 20px !important;
+    border: transparent;
+    border-color: inherit;
+    background-color: rgb(19,21,54) !important;
+    color:white;
+    max-width: 100%;
+    width: 100%;
+    min-width: 0px;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    position: relative;
+}
+.yourselect{
+    background-color: rgb(19,21,54) !important;
+    outline: 2px solid transparent;
+    border: transparent;
+
+}
+
