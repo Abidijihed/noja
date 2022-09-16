@@ -34,6 +34,7 @@
     "react-jvectormap": "0.0.16",
     "react-leaflet-semicircle": "^3.0.3",
     "react-phone-number-input": "^3.2.11",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "5.2.0",
     "react-scripts": "5.0.0",
     "react-swipeable-views": "0.14.0",
