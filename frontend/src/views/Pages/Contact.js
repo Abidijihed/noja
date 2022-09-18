@@ -1,104 +1,200 @@
-import React from 'react'
-import './style.css'
+
+    import React, { useState }  from "react";
+// Chakra imports
 import {
-	Box,
-	Button,
-	CircularProgress,
-	CircularProgressLabel,
-	Flex,
-	Grid,
-	Icon,
-	Progress,
-	SimpleGrid,
-	Spacer,
-	Stack,
-	Stat,
-	StatHelpText,
-	StatLabel,
-	StatNumber,
-	Table,
-	Tbody,
-	Text,
-	Th,
-	Thead,
-	Tr,
-  Radio, 
-  RadioGroup
-} from '@chakra-ui/react';
+  Box,
+  Flex,
+  Button,
+  FormControl,
+  FormLabel,
+  Heading,
+  Input,
+  Link,
+  Switch,
+  Grid,
+  Text,
+  DarkMode,
+} from "@chakra-ui/react";
+import Card from 'components/Card/Card.js';
+import { Select } from '@chakra-ui/react'
+import 'react-phone-number-input/style.css'
+import './SignIn.css'
+import PhoneInput from 'react-phone-number-input'
+import { EmailIcon,LockIcon } from '@chakra-ui/icons'
+
+// Assets
+import signInImage from "assets/img/signInImage.png";
+
+// Custom Components
+import AuthFooter from "components/Footer/AuthFooter";
+import GradientBorder from "components/GradientBorder/GradientBorder";
 import './contact.css'
-export default function Contact() {
+
+function SignIn() {
+  const [value, setValue] = useState()
+  const [count, setName] = useState("");
+
+  const titleColor = "white";
+  const textColor = "gray.400";
+
   return (
-   
-    // <Router>
-             <Flex flexDirection='column' pt={{ base: '120px', md: '150px' }}>
-			<SimpleGrid columns={{ sm: 1, md: 1, xl: 1 }} spacing='24px'>
-			<section className="ftco-section">
-     
-      <div className="container">
-     
-        <div className="row justify-content-center">
-          <div className="col-8">
-      
-          </div>
-        </div>
-        <div className="row justify-content-center">
-          <div className="col-md-12">
-            <div className="wrapper">
-              <div className="row no-gutters mb-5">
-                <div className="col-md-7">
-                  <div className="contact-wrap w-100 p-md-5 p-4">
-                    <h3 className="mb-4">Contact Us</h3>
-                    <div id="form-message-warning" className="mb-4"></div> 
-                    <div id="form-message-success" className="mb-4">
-                      Your message was sent, thank you!
-                    </div>
-                    <form  method="POST" id="contactForm" name="contactForm" className="contactForm"  >
-                      <div className="row">
-                        <div className="col-md-6">
-                          <div className="form-group">
-                            <label className="label" htmlFor="name">Full Name</label>
-                            <input type="text" className="form-control" name="name" id="name" placeholder="Name"
-                                      />
-                          </div>
-                        </div>
-                        <div className="col-md-6"> 
-                          <div className="form-group">
-                            <label className="label" htmlFor="email">Email Address</label>
-                            <input type="email" className="form-control" name="email" id="email" placeholder="Email"
-                                     />
-                          </div>
-                        </div>
-                        <div className="col-md-12">
-                          <div className="form-group">
-                            <label className="label" htmlFor="subject">Subject</label>
-                            <input type="text" className="form-control" name="subject" id="subject" placeholder="Subject" 
-                                      />
-                          </div>
-                        </div>
-                        <div className="col-md-12">
-                          <div className="form-group">
-                            <label className="label" htmlFor="#">Message</label>
-                            <textarea name="message" className="form-control" id="message" cols="30" rows="4" placeholder="Message"
-                                      ></textarea>
-                          </div>
-                        </div>
-                        <div className="col-md-12">
-                          <div className="form-group">
-                            <input type="submit" value="send message"  className="btn btn-primary"/>
-                            <div className="submitting"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-                <div className="col-md-5 d-flex align-items-stretch">
+
+
+
+<Flex flexDirection="column" pt={{ base: '120px', md: '75px' }}>
+			<Grid
+				templateColumns={{ sm: '1fr', lg: '1.7fr 1.3fr' }}
+				maxW={{ sm: '100%', md: '100%' }}
+				gap="24px"
+				mb="24px"
+			>
+				{/* Sales Overview */}
+
+				{/* Active Users */}
+				<Card p="16px">
+        <Heading color={titleColor} fontSize='32px' mb='10px'>
+              Nice to see you!
+            </Heading>
+            <Text
+              mb='36px'
+              ms='4px'
+              color={textColor}
+              fontWeight='bold'
+              fontSize='14px'>
+                Fill The Form & Send it To Contact Us
+            </Text>
+            <Flex>
+            <FormControl>
+              <FormLabel
+                ms='4px'
+                fontSize='sm'
+                fontWeight='normal'
+                color='white'>
+                Full Name<span className="mendatory">*</span> 
+              </FormLabel>
+              <GradientBorder
+                mb='24px'
+                w={{ base: "100%", lg: "fit-content" }}
+                borderRadius='20px'>
+                <Input
+                onChange={setName}
+                  color='white'
+                  bg='rgb(19,21,54)'
+                  border='transparent'
+                  borderRadius='20px'
+                  fontSize='sm'
+                  size='lg'
+                  w={{ base: "100%", md: "346px"}}
+                  maxW='100%'
+                  h='46px'
+                  type='text'
+                  placeholder='Your FirstName'
+                />
+              </GradientBorder>
+          
+         
+            
+              <FormLabel
+                ms='4px'
+                fontSize='sm'
+                fontWeight='normal'
+                color='white'>
+                Email<span className="mendatory">*</span> 
+              </FormLabel>
+              <GradientBorder
+                mb='24px'
+                w={{ base: "100%", lg: "fit-content" }}
+                borderRadius='20px'>
+                <Input
+                  color='white'
+                  bg='rgb(19,21,54)'
+                  border='transparent'
+                  borderRadius='20px'
+                  fontSize='sm'
+                  size='lg'
+                  w={{ base: "100%", md: "346px" }}
+                  maxW='100%'
+                  h='46px'
+                  type='email'
+                  placeholder='Your email adress'
+                />
+              </GradientBorder>
+         
+              <FormLabel
+                ms='4px'
+                fontSize='sm'
+                fontWeight='normal'
+                color='white'>
+                Subject<span className="mendatory">*</span> 
+              </FormLabel>
+              <GradientBorder
+                mb='24px'
+                w={{ base: "100%", lg: "fit-content" }}
+                borderRadius='20px'>
+                <Input
+                  color='white'
+                  bg='rgb(19,21,54)'
+                  border='transparent'
+                  borderRadius='20px'
+                  fontSize='sm'
+                  size='lg'
+                  w={{ base: "100%", md: "346px" }}
+                  maxW='100%'
+                  h='46px'
+                  type='text'
+                  placeholder='Your Subject'
+                />
+              </GradientBorder>
+         
+              <FormLabel
+                ms='4px'
+                fontSize='sm'
+                fontWeight='normal'
+                color='white'>
+                Message<span className="mendatory">*</span> 
+              </FormLabel>
+              <GradientBorder
+                mb='24px'
+                w={{ base: "100%", lg: "fit-content" }}
+                borderRadius='20px'>
+                <Input
+                  color='white'
+                  bg='rgb(19,21,54)'
+                  border='transparent'
+                  borderRadius='20px'
+                  fontSize='sm'
+                  size='lg'
+                  w={{ base: "100%", md: "346px" }}
+                  maxW='100%'
+                  h="100px"
+                  type='text'
+                  placeholder='Your Message'
+                />
+              </GradientBorder>
+              </FormControl>
+           </Flex>
              
-                </div>
-              </div>
-              <div className="row">
+            <Button
+              // background="rgb(19,21,54)"
+              variant='brand'
+              fontSize='10px'
+              type='submit'
+              w='100%'
+              maxW='350px'
+              h='45px'
+              mb='20px'
+              mt='20px'>
+              Send Email
+            </Button>
+				</Card>
+
+			
+
+			</Grid>
+		
+      <div className="row">
                 <div className="col-md-4">
-                  <div className="dbox w-100 text-center">
+                  <div className="dbox text-center">
                     <div className="icon d-flex align-items-center justify-content-center">
                       <span className="fa fa-map-marker"></span>
                     </div>
@@ -108,7 +204,7 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="col-md-4">
-                  <div className="dbox w-100 text-center">
+                  <div className="dbox text-center">
                     <div className="icon d-flex align-items-center justify-content-center">
                       <span className="fa fa-phone"></span>
                     </div>
@@ -118,7 +214,7 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="col-md-4">
-                  <div className="dbox w-100 text-center">
+                  <div className="dbox text-center">
                     <div className="icon d-flex align-items-center justify-content-center">
                       <span className="fa fa-paper-plane"></span>
                     </div>
@@ -129,15 +225,19 @@ export default function Contact() {
                 </div>
               
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-			</SimpleGrid>
 		</Flex>
-    
+
+
+
+
+
+
 
    
-  )
+  );
 }
+
+export default SignIn;
+
+
+

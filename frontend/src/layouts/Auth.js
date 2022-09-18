@@ -88,7 +88,7 @@ export default function Pages(props) {
         <Portal containerRef={navRef}>
           <AuthNavbar
             secondary={getActiveNavbar(routes)}
-            logoText='NOJA SCHOOL'
+            // logoText='NOJA SCHOOL'
           />
         </Portal>
         <Box w='100%'>

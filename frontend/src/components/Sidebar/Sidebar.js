@@ -16,6 +16,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import IconBox from "components/Icons/IconBox";
+import noja from 'assets/img/zra.png'
 import { SimmmpleLogoWhite } from "components/Icons/Icons";
 import { Separator } from "components/Separator/Separator";
 import { SidebarHelp } from "components/Sidebar/SidebarHelp";
@@ -204,7 +205,8 @@ function Sidebar(props) {
         justifyContent='center'
         alignItems='center'
         fontSize='11px'>
-        <SimmmpleLogoWhite w='22px' h='22px' me='10px' mt='2px' />
+          <img src={noja}/>
+        {/* <SimmmpleLogoWhite w='22px' h='22px' me='10px' mt='2px' /> */}
         <Box
           bg='linear-gradient(97.89deg, #FFFFFF 70.67%, rgba(117, 122, 140, 0) 108.55%)'
           bgClip='text'>
@@ -420,7 +422,9 @@ export function SidebarResponsive(props) {
         justifyContent='center'
         alignItems='center'
         fontSize='11px'>
-        <SimmmpleLogoWhite w='22px' h='22px' me='10px' mt='2px' />
+          <img src={noja}/>
+
+        {/* <SimmmpleLogoWhite w='22px' h='22px' me='10px' mt='2px' /> */}
         <Box
           bg='linear-gradient(97.89deg, #FFFFFF 70.67%, rgba(117, 122, 140, 0) 108.55%)'
           bgClip='text'>
