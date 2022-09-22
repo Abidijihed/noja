@@ -22,7 +22,8 @@ import TablesProjectRow from "components/Tables/TablesProjectRow";
 import TablesTableRow from "components/Tables/TablesTableRow";
 
 // Data
-import { tablesProjectData, tablesTableData } from "variables/general";
+// import { tablesProjectData, tablesTableData } from "variables/general";
+
 
 // Icons
 import { AiFillCheckCircle } from "react-icons/ai";
@@ -68,11 +69,12 @@ function Tables() {
                 </Th>
                 <Th borderBottomColor='#56577A'></Th>
               </Tr>
-            </Thead>
-            <Tbody>
+             </Thead>
+            {/*<Tbody>
               {tablesTableData.map((row, index, arr) => {
                 return (
                   <TablesTableRow
+                  key={index}
                     name={row.name}
                     logo={row.logo}
                     email={row.email}
@@ -84,7 +86,7 @@ function Tables() {
                   />
                 );
               })}
-            </Tbody>
+            </Tbody> */}
           </Table>
         </CardBody>
       </Card>
@@ -144,10 +146,11 @@ function Tables() {
                 <Th borderBottomColor='#56577A'></Th>
               </Tr>
             </Thead>
-            <Tbody>
+            {/* <Tbody>
               {tablesProjectData.map((row, index, arr) => {
                 return (
                   <TablesProjectRow
+                  key={index}
                     name={row.name}
                     logo={row.logo}
                     status={row.status}
@@ -157,7 +160,7 @@ function Tables() {
                   />
                 );
               })}
-            </Tbody>
+            </Tbody> */}
           </Table>
         </CardBody>
       </Card>

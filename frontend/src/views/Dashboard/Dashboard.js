@@ -1,33 +1,12 @@
 // Chakra imports
 import {
-	Box,
-	Button,
-	CircularProgress,
-	CircularProgressLabel,
 	Flex,
 	Grid,
-	Icon,
-	Progress,
-	SimpleGrid,
-	Spacer,
-	Stack,
-	Stat,
-	StatHelpText,
-	StatLabel,
-	StatNumber,
-	Table,
-	Tbody,
-	Text,
-	Th,
-	Thead,
-	Tr,
-	GridItem
+	Text
 } from '@chakra-ui/react';
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 // Styles for the circular progressbar
-import medusa from 'assets/img/cardimgfree.png';
 import myreact from 'assets/img/myreact.png';
 import mynode from 'assets/img/mynode.jpg';
 import myexpress from 'assets/img/myexpress.jpg';
@@ -38,32 +17,29 @@ import myangular from 'assets/img/myangular.png';
 import mymaterial from 'assets/img/mymaterial.jpg';
 // Custom components
 import Card from 'components/Card/Card.js';
-import CardBody from 'components/Card/CardBody.js';
 import CardHeader from 'components/Card/CardHeader.js';
-import BarChart from 'components/Charts/BarChart';
-import LineChart from 'components/Charts/LineChart';
-import IconBox from 'components/Icons/IconBox';
+;
 // Icons
-import { CartIcon, DocumentIcon, GlobeIcon, RocketIcon, StatsIcon, WalletIcon } from 'components/Icons/Icons.js';
-import DashboardTableRow from 'components/Tables/DashboardTableRow';
-import TimelineRow from 'components/Tables/TimelineRow';
-import React from 'react';
-import { AiFillCheckCircle } from 'react-icons/ai';
-import { BiHappy } from 'react-icons/bi';
-import { BsArrowRight } from 'react-icons/bs';
-import { IoCheckmarkDoneCircleSharp, IoEllipsisHorizontal } from 'react-icons/io5';
-// Data
-import {
-	barChartDataDashboard,
-	barChartOptionsDashboard,
-	lineChartDataDashboard,
-	lineChartOptionsDashboard
-} from 'variables/charts';
-import { dashboardTableData, timelineData } from 'variables/general';
-import './index.css';
-import { Carousel } from 'react-bootstrap';
 
+import React,{useEffect } from 'react';
+
+import './index.css';
+// import socketIO from "socket.io-client";
+// const socket = socketIO.connect("http://localhost:3332");
+import axios from 'axios'
 export default function Dashboard() {
+	//  useEffect(()=>{
+	// 	const reloadCount = sessionStorage.getItem('reloadCount');
+	// 	if(reloadCount < 1) {
+	// 	  sessionStorage.setItem('reloadCount', String(reloadCount + 1));
+	// 	  window.location.reload();
+	// 	} else {
+	// 	  sessionStorage.removeItem('reloadCount');
+	// 	}
+	
+	//   })
+
+	  
 	return (
 		<Flex flexDirection="column" pt={{ base: '120px', md: '75px' }}>
 			<Grid
@@ -76,12 +52,11 @@ export default function Dashboard() {
 
 				{/* Active Users */}
 				<Card p="16px">
-					<div class="container1">
+					<div className="container1">
 						<img
 							className="myimage"
 							src="https://yetiacademy.com/wp-content/uploads/2020/09/5-Fantastic-Coding-Games-For-Students-scaled.jpeg"
 							alt="Lake louise picture"
-							class="image1"
 						/>
 						<img
 							className="myimage"
@@ -107,10 +82,10 @@ export default function Dashboard() {
 				</Card>
 
 				<div id="earth" >
-				<div class="container">
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <h3 class="animate-charcter"> NoJA School<br></br>Learn by Make</h3>
+				<div className="container">
+  <div className="row">
+    <div className="col-md-12 text-center">
+      <h3 className="animate-charcter"> NoJA School<br></br>Learn by Make</h3>
     </div>
   </div>
 </div>

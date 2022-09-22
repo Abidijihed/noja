@@ -10,11 +10,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import {
-  CreativeTimLogo,
-  DocumentIcon,
   HomeIcon,
-  PersonIcon,
-  RocketIcon,
 } from "components/Icons/Icons";
 import { SidebarResponsive } from "components/Sidebar/Sidebar";
 import PropTypes from "prop-types";
@@ -80,48 +76,6 @@ export default function AuthNavbar(props) {
           <Text>Dashboard</Text>
         </Button>
       </NavLink>
-      <NavLink to='/admin/profile'>
-        <Button
-          fontSize='sm'
-          ms='0px'
-          px='0px'
-          me={{ sm: "2px", md: "16px" }}
-          color={navbarIcon}
-          variant='transparent-with-icon'
-          leftIcon={
-            <PersonIcon color={navbarIcon} w='12px' h='12px' me='0px' />
-          }>
-          <Text>Profile</Text>
-        </Button>
-      </NavLink>
-      <NavLink to='/auth/signup'>
-        <Button
-          fontSize='sm'
-          ms='0px'
-          px='0px'
-          me={{ sm: "2px", md: "16px" }}
-          color={navbarIcon}
-          variant='transparent-with-icon'
-          leftIcon={
-            <RocketIcon color={navbarIcon} w='12px' h='12px' me='0px' />
-          }>
-          <Text>Sign Up</Text>
-        </Button>
-      </NavLink>
-      <NavLink to='/auth/signin'>
-        <Button
-          fontSize='sm'
-          ms='0px'
-          px='0px'
-          me={{ sm: "2px", md: "16px" }}
-          color={navbarIcon}
-          variant='transparent-with-icon'
-          leftIcon={
-            <DocumentIcon color={navbarIcon} w='12px' h='12px' me='0px' />
-          }>
-          <Text>Sign In</Text>
-        </Button>
-      </NavLink>
     </HStack>
   );
   return (
@@ -157,19 +111,7 @@ export default function AuthNavbar(props) {
           />
         </Box>
         {linksAuth}
-        <Link href='https://creative-tim.com/product/vision-ui-dashboard-chakra'>
-          <Button
-            fontSize='xs'
-            variant='brand'
-            borderRadius='12px'
-            px='30px'
-            display={{
-              sm: "none",
-              lg: "flex",
-            }}>
-            Free Download
-          </Button>
-        </Link>
+        
       </Flex>
     </Flex>
   );

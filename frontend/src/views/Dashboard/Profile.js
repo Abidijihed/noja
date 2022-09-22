@@ -30,7 +30,9 @@ import ProjectImage3 from 'assets/img/ProjectImage3.png';
 import Card from 'components/Card/Card';
 import CardBody from 'components/Card/CardBody';
 import CardHeader from 'components/Card/CardHeader';
-import LineChart from 'components/Charts/LineChart';
+// import LineChart from 'components/Charts/LineChart';
+
+
 import IconBox from 'components/Icons/IconBox';
 import { CarIcon, FulgerIcon, FulgerWhiteIcon } from 'components/Icons/Icons';
 import { Separator } from 'components/Separator/Separator';
@@ -40,12 +42,12 @@ import { FaCube, FaFacebook, FaInstagram, FaPencilAlt, FaPenFancy, FaTwitter } f
 // Icons
 import { IoDocumentsSharp } from 'react-icons/io5';
 // Data
-import {
-	lineChartDataProfile1,
-	lineChartDataProfile2,
-	lineChartOptionsProfile1,
-	lineChartOptionsProfile2
-} from 'variables/charts';
+// import {
+// 	lineChartDataProfile1,
+// 	lineChartDataProfile2,
+// 	lineChartOptionsProfile1,
+// 	lineChartOptionsProfile2
+// } from 'variables/charts';
 
 function Profile() {
 	return (
@@ -278,12 +280,12 @@ function Profile() {
 											+20%
 										</Text>
 									</Flex>
-									<Box maxH='75px'>
+									{/* <Box maxH='75px'>
 										<LineChart
 											lineChartData={lineChartDataProfile1}
 											lineChartOptions={lineChartOptionsProfile1}
 										/>
-									</Box>
+									</Box> */}
 								</Flex>
 								<Flex
 									align='center'
@@ -318,12 +320,12 @@ function Profile() {
 											1.342km
 										</Text>
 									</Flex>
-									<Box maxH='75px'>
+									{/* <Box maxH='75px'>
 										<LineChart
 											lineChartData={lineChartDataProfile2}
 											lineChartOptions={lineChartOptionsProfile2}
 										/>
-									</Box>
+									</Box> */}
 								</Flex>
 							</Grid>
 						</Flex>
@@ -430,19 +432,19 @@ function Profile() {
 									ACCOUNT
 								</Text>
 								<Flex align='center' mb='20px'>
-									<Switch variant='brand' colorScheme='brand' me='10px' defaultChecked />
+									<Switch variant='brand' colorscheme='brand' me='10px' defaultChecked />
 									<Text noOfLines={1} fontSize='sm' color={'gray.400'} fontWeight='400'>
 										Email me when someone follows me
 									</Text>
 								</Flex>
 								<Flex align='center' mb='20px'>
-									<Switch colorScheme='brand' me='10px' />
+									<Switch colorscheme='brand' me='10px' />
 									<Text noOfLines={1} fontSize='sm' color={'gray.400'} fontWeight='400'>
 										Email me when someone answers on my post
 									</Text>
 								</Flex>
 								<Flex align='center' mb='20px'>
-									<Switch colorScheme='brand' me='10px' defaultChecked />
+									<Switch colorscheme='brand' me='10px' defaultChecked />
 									<Text noOfLines={1} fontSize='sm' color={'gray.400'} fontWeight='400'>
 										Email me when someone mentions me
 									</Text>
@@ -451,25 +453,25 @@ function Profile() {
 									APPLICATION
 								</Text>
 								<Flex align='center' mb='20px'>
-									<Switch colorScheme='brand' me='10px' />
+									<Switch colorscheme='brand' me='10px' />
 									<Text noOfLines={1} fontSize='sm' color={'gray.400'} fontWeight='400'>
 										New launches and projects
 									</Text>
 								</Flex>
 								<Flex align='center' mb='20px'>
-									<Switch colorScheme='brand' me='10px' defaultChecked />
+									<Switch colorscheme='brand' me='10px' defaultChecked />
 									<Text noOfLines={1} fontSize='sm' color={'gray.400'} fontWeight='400'>
 										Monthly product changes
 									</Text>
 								</Flex>
 								<Flex align='center' mb='20px'>
-									<Switch colorScheme='brand' me='10px' />
+									<Switch colorscheme='brand' me='10px' />
 									<Text noOfLines={1} fontSize='sm' color={'gray.400'} fontWeight='400'>
 										Subscribe to newsletter
 									</Text>
 								</Flex>
 								<Flex align='center' mb='20px'>
-									<Switch colorScheme='brand' me='10px' defaultChecked />
+									<Switch colorscheme='brand' me='10px' defaultChecked />
 									<Text noOfLines={1} fontSize='sm' color={'gray.400'} fontWeight='400'>
 										Receive mails weekly
 									</Text>

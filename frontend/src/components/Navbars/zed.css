@@ -1,0 +1,20 @@
+.jss154 {
+    top: 11px;
+    color: #FFF;
+    right: 47px;
+    border: 1px solid #FFF;
+    height: 16px;
+    display: block;
+    position: absolute;
+    font-size: 9px;
+    min-width: 16px;
+    background: #f44336;
+    text-align: center;
+    line-height: 14px;
+    border-radius: 10px;
+    vertical-align: middle;
+}
+
+.jss154 {
+    z-index: 4;
+}

@@ -1,8 +1,7 @@
 {
-  "name": "vision-dashboard-chakra",
+  "name": "noja-school",
   "version": "1.0.1",
   "private": true,
-  "homepage": "https://demos.creative-tim.com/vision-ui-dashboard-chakra/#/",
   "dependencies": {
     "@chakra-ui/icons": "^1.1.7",
     "@chakra-ui/react": "1.8.8",
@@ -17,6 +16,7 @@
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.4",
     "apexcharts": "^3.27.3",
+    "axios": "^0.27.2",
     "bootstrap": "^5.2.1",
     "classnames": "2.3.1",
     "framer-motion": "^4.1.17",

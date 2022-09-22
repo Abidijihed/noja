@@ -3,32 +3,54 @@ const crypto = require('crypto');
 const middleware = require('../middleware/auth');
 const utils=require('../middleware/util')
 const session=require ('../models/session')
+
 module.exports={
-CreateStudent:((req,res)=>{
+ CreateStudent:((req,res)=>{
     let passwordHashed=crypto.createHash('sha256').update(req.body.Password, 'utf8').digest('hex')
-    let repeatepasswordHshed=crypto.createHash('sha256').update(req.body.confirmPassword, 'utf8').digest('hex')
     let query=`SELECT * from students where Email="${req.body.Email}"`
-connection.query(query,(err,results)=>{
+     connection.query(query,(err,results)=>{
   if(err){
     res.status(500).send(err)
   }else if((results.length>0 &&results[0].Email===req.body.Email)) {
     res.status(200).send("user exist")
+  }else if(!results.length && results===undefined){
+    res.status(202).send("chek somthing went wrong!")
   }else{
-    var query=`INSERT INTO students(Firstname,Lastname,Email,Password,confirmPassword,PhoneNumber,image,country,Zip,Address) VALUES("${req.body.Firstname}","${req.body.Lastname}","${req.body.Email}","${passwordHashed}","${repeatepasswordHshed}","${req.body.PhoneNumber}","${req.body.image}","${req.body.country}","${req.body.Zip}","${req.body.Address}")`
+    var query=`INSERT INTO students(FirstName,LastName,Email,Address,PhoneNumber,Skills,Password,image,country,Zip,creatAt,originpassword) VALUES("${req.body.FirstName}","${req.body.LastName}","${req.body.Email}","${req.body.Address}","${req.body.PhoneNumber}","${req.body.Skills}","${passwordHashed}","${req.body.image}","${req.body.country}","${req.body.Zip}","${req.body.creatAt}","${req.body.Password}")`
     connection.query(query,(err,results)=>{
       if(err){
         res.status(500).send(err)
       }else{
         res.status(200).send("user created")
-
       }
+      console.log(results)
+      var query=`INSERT INTO admin(students_id,message,date,new) VALUES("${results.insertId}","${req.body.Email}","${req.body.creatAt}",${true})`
+      connection.query(query,(err,result)=>{
+           if(err){
+            res.status(500).send(err)
+           }else{
+            res.status(200).send('user join')
+           }
+      })
     })
   }
      
     })
 }),
+getnotificationadmin:((req,res)=>{
+const query='SELECT * FROM admin'
+connection.query(query,(err,result)=>{
+if(err){
+  res.status(500).send(err)
+}else{
+  res.status(200).send(result)
+}
+ 
+})
+}),
 VerifyStudent :(req,res)=>{
     var passwordHashed = crypto.createHash('sha256').update(req.body.Password, 'utf8').digest('hex')
+    
     // var repeatepasswordHshed=crypto.createHash('sha256').update(req.body.repeatepassword, 'utf8').digest('hex')
     const query=`SELECT * from students where Email="${req.body.Email}"`
     connection.query(query,(err,results)=>{
@@ -56,3 +78,14 @@ VerifyStudent :(req,res)=>{
   
 }
 }
+
+
+
+
+
+
+
+
+
+
+

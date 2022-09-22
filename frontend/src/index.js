@@ -12,9 +12,6 @@ ReactDOM.render(
     <Switch>
       <Route path={`/auth`} component={AuthLayout} />
       <Route path={`/admin`} component={AdminLayout} />
-      {/* <Route path={'/YourCourses'} component={YourCourses}/> */}
-
-      {/* <Route path={`/rtl`} component={RTLLayout} /> */}
       <Redirect from={`/`} to='/admin/dashboard' />
     </Switch>
   </HashRouter>,
