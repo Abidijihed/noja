@@ -26,9 +26,9 @@ module.exports={
       let query=`INSERT INTO adminnotfication(students_id,message,date,new) VALUES("${results.insertId}","${req.body.Email}","${req.body.creatAt}",${true})`
       connection.query(query,(err,result)=>{
            if(err){
-            res.status(501).send(err)
+            console.log(500)
            }else{
-            res.status(201).send('user join')
+            console.log(201)
            }
       })
     

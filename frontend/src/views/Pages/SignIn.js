@@ -37,17 +37,71 @@ export default class SignIn extends Component {
 			
 			Password: '',
 			Email: '',
+			checklogin:''
         }
     }
+	goto(){
+		window.location.href='http://localhost:3000/auth/Dashboard#/auth/dashboard'	
+	}
     handleChange=(e)=> {
 		this.setState({[e.target.name]: e.target.value });
 		console.log(this.state);
 	}
+	StudentSignIn(e){
+		e.preventDefault();
+		const {Password,Email}=this.state
+		axios.post('http://localhost:3332/api/login',{
+               Email:Email,
+			   Password:Password
+		}).then((res)=>{
+			if(res.data[1]==="secsuss"){
+				sessionStorage.setItem('_stud',res.data[0])
+				sessionStorage.setItem('_idstud',res.data[2])
+				this.setState({checklogin:res.data[1]})
+				
+			}
+		})
+	}
   render() {
     const titleColor = 'white';
 		const textColor = 'gray.400';
+		const {checklogin}=this.state
+
+		
     return (
-        <Flex position="relative">
+		checklogin==="secsuss"?
+		(
+<Flex
+	direction="column"
+	w="100%"
+	background="transparent"
+	mt={{ base: '50px', md: '50px', lg: '160px', xl: '250px' }}
+	mb={{ base: '60px', lg: '95px' }}
+	>
+<Alert
+status='success'
+variant='subtle'
+flexDirection='column'
+alignItems='center'
+justifyContent='center'
+textAlign='center'
+width='100%'
+height='500px'
+>
+<AlertIcon boxSize='40px' mr={0} />
+<AlertTitle mt={4} mb={1} fontSize='lg'>
+Application submitted!
+</AlertTitle>
+<AlertDescription maxWidth='sm'>
+Thanks for submitting your application. Our team will get back to you soon.
+</AlertDescription>
+</Alert>
+<Button onClick={()=>this.goto()}>
+	weclome
+</Button>
+</Flex>
+		):
+        (<Flex position="relative">
 				<Flex
 					minH="100vh"
 					h={{ base: '120vh', lg: 'fit-content' }}
@@ -135,7 +189,7 @@ export default class SignIn extends Component {
 								mb="20px"
 								mt="20px"
                 
-                            //  onClick={()=>this.JoinOurcomunities()}
+                             onClick={(e)=>this.StudentSignIn(e)}
 							>
 								SignIn
 							</Button>
@@ -190,5 +244,6 @@ export default class SignIn extends Component {
 				</Flex>
 			</Flex>
     )
+	)
   }
 }

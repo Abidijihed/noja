@@ -84,12 +84,12 @@ export default class SignIn extends Component {
     return (
 toglle===true? (
   <Flex
-							direction="column"
-							w="100%"
-							background="transparent"
-							mt={{ base: '50px', md: '50px', lg: '160px', xl: '250px' }}
-							mb={{ base: '60px', lg: '95px' }}
-						>
+	   direction="column"
+		w="100%"
+		background="transparent"
+		mt={{ base: '50px', md: '50px', lg: '160px', xl: '250px' }}
+		mb={{ base: '60px', lg: '95px' }}
+		>
 <Alert
   status='success'
   variant='subtle'
