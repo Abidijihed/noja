@@ -9,7 +9,6 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import routes from "routes.js";
 // Custom Chakra theme
 import theme from "theme/themeAdmin.js";
-import FixedPlugin from "../components/FixedPlugin/FixedPlugin";
 // Custom components
 import MainPanel from "../components/Layout/MainPanel";
 import PanelContainer from "../components/Layout/PanelContainer";
@@ -70,7 +69,7 @@ export default function Dashboard(props) {
     return activeNavbar;
   };
   const getRoutes = (routes) => {
-    return routes.map((prop, key) => {
+    return routes.map((prop, key,index) => {
       if (prop.collapse) {
         return getRoutes(prop.views);
       }
@@ -80,9 +79,9 @@ export default function Dashboard(props) {
       if (prop.layout === "/admin") {
         return (
           <Route
+          key={index}
             path={prop.layout + prop.path}
             component={prop.component}
-            key={key}
           />
         );
       } else {
@@ -129,13 +128,7 @@ export default function Dashboard(props) {
           </PanelContent>
         ) : null}
         <Footer />
-        <Portal>
-          <FixedPlugin
-            secondary={getActiveNavbar(routes)}
-            fixed={fixed}
-            onOpen={onOpen}
-          />
-        </Portal>
+        
       </MainPanel>
     </ChakraProvider>
   );

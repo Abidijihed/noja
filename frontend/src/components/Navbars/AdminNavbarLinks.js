@@ -32,7 +32,6 @@ import './zed.css'
 import axios from 'axios'
 export default function HeaderLinks(props) {
 const [data,setData]=useState([])
-const [valuenotif,setValuenotif]=useState(0)
 	
 	const { variant, children, fixed, secondary, onOpen, ...rest } = props;
 
@@ -60,7 +59,16 @@ const [valuenotif,setValuenotif]=useState(0)
 // })
 	return (
 		<Flex pe={{ sm: '0px', md: '16px' }} w={{ sm: '100%', md: 'auto' }} alignItems="center" flexDirection="row">
-			<InputGroup
+
+			{/* <SidebarResponsive
+				iconColor="gray.500"
+				logoText={props.logoText}
+				secondary={props.secondary}
+				routes={routes}
+				
+				{...rest}
+			/> */}
+		<InputGroup
 				cursor="pointer"
 				bg={inputBg}
 				borderRadius="15px"
@@ -91,53 +99,10 @@ const [valuenotif,setValuenotif]=useState(0)
 				/>
 				<Input fontSize="xs" py="11px" color={mainText} placeholder="Type here..." borderRadius="inherit" />
 			</InputGroup>
-			<NavLink to="/auth/signin">
-				<Button
-					ms="0px"
-					px="0px"
-					me={{ sm: '2px', md: '16px' }}
-					color={navbarIcon}
-					variant="transparent-with-icon"
-					rightIcon={
-						document.documentElement.dir ? (
-							''
-						) : (
-							<ProfileIcon color={navbarIcon} w="22px" h="22px" me="0px" />
-						)
-					}
-					leftIcon={
-						document.documentElement.dir ? (
-							<ProfileIcon color={navbarIcon} w="22px" h="22px" me="0px" />
-						) : (
-							''
-						)
-					}
-				>
-					<Text display={{ sm: 'none', md: 'flex' }}>Sign In</Text>
-				</Button>
-			</NavLink>
-			<SidebarResponsive
-				iconColor="gray.500"
-				logoText={props.logoText}
-				secondary={props.secondary}
-				routes={routes}
-				// logo={logo}
-				{...rest}
-			/>
-			<SettingsIcon
-				cursor="pointer"
-				ms={{ base: '16px', xl: '0px' }}
-				me="16px"
-				ref={settingsRef}
-				onClick={props.onOpen}
-				color={navbarIcon}
-				w="18px"
-				h="18px"
-			/>
 			<Menu>
 				<MenuButton align="center">
 					<BellIcon color={navbarIcon} mt="-4px" w="30px" h="30px" />
-          <span className="jss154">{valuenotif}</span>
+          <span className="jss154">5</span>
 				</MenuButton>
 
 				<MenuList
@@ -212,6 +177,7 @@ const [valuenotif,setValuenotif]=useState(0)
 					</Flex>
 				</MenuList>
 			</Menu>
+			
 		</Flex>
 	)
 }

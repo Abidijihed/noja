@@ -51,7 +51,7 @@ import { IoDocumentsSharp } from 'react-icons/io5';
 
 function Profile() {
 	return (
-		<Flex direction='column' mt={{ sm: '25px', md: '0px' }}>
+		<Flex direction='column' mt={{ sm: '25px', md: '100px' }}>
 			<Box
 				mb={{ sm: '24px', md: '50px', xl: '20px' }}
 				borderRadius='15px'

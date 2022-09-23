@@ -28,92 +28,26 @@ import {
   AlertTitle,
   AlertDescription,
 } from '@chakra-ui/react'
+
 export default class SignIn extends Component {
-	constructor() {
+    constructor() {
 		super();
 
 		this.state = {
-			FirstName: '',
-			LastName: '',
+			
+			Password: '',
 			Email: '',
-			Address: '',
-			PhoneNumber: '',
-			Skills: '',
-      toglle:false
-		};
-	}
-	handleChange=(e)=> {
+        }
+    }
+    handleChange=(e)=> {
 		this.setState({[e.target.name]: e.target.value });
 		console.log(this.state);
 	}
-
-  generatePassword=()=> {
-    var length = 36,
-        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345678/%@?$£9",
-        retVal = "";
-    for (var i = 0, n = charset.length; i < length; ++i) {
-        retVal += charset.charAt(Math.floor(Math.random() * n));
-    }
-    return retVal;
-}
-  JoinOurcomunities (){
-  const {FirstName,LastName,Email,Address,PhoneNumber,Skills}=this.state
-    axios.post(`http://localhost:3332/api/createstudents`,{
-      FirstName:FirstName,
-      LastName:LastName,
-      Email:Email,
-      Address:Address,
-      PhoneNumber:PhoneNumber.toString(),
-      Skills:Skills,
-      Password:this.generatePassword(),
-      creatAt:new Date().toLocaleString()
-    }).then((res)=>{
-      if(res.status===200 && res.data==="user created"){
-        this.setState({toglle:true})
-        localStorage.setItem('user',"usere have ben submit")
-          
-      }
-    })
-  }
-	render() {
-		const titleColor = 'white';
+  render() {
+    const titleColor = 'white';
 		const textColor = 'gray.400';
-    const {PhoneNumber,toglle}=this.state
-    console.log(toglle)
-
     return (
-toglle===true? (
-  <Flex
-							direction="column"
-							w="100%"
-							background="transparent"
-							mt={{ base: '50px', md: '50px', lg: '160px', xl: '250px' }}
-							mb={{ base: '60px', lg: '95px' }}
-						>
-<Alert
-  status='success'
-  variant='subtle'
-  flexDirection='column'
-  alignItems='center'
-  justifyContent='center'
-  textAlign='center'
-  width='100%'
-  height='500px'
->
-  <AlertIcon boxSize='40px' mr={0} />
-  <AlertTitle mt={4} mb={1} fontSize='lg'>
-    Application submitted!
-  </AlertTitle>
-  <AlertDescription maxWidth='sm'>
-    Thanks for submitting your application. Our team will get back to you soon.
-  </AlertDescription>
-</Alert>
-</Flex>
-        
-):
-		 (
-			<Flex position="relative">
-        {console.log(this.state)}
+        <Flex position="relative">
 				<Flex
 					minH="100vh"
 					h={{ base: '120vh', lg: 'fit-content' }}
@@ -147,66 +81,13 @@ toglle===true? (
 								Enter Your Information To Join our Community
 							</Text>
 							<Flex>
-								<FormControl>
-									<FormLabel ms="4px" fontSize="sm" fontWeight="normal" color="white">
-										FirstName<span className="mendatory">*</span>
-									</FormLabel>
-									<GradientBorder
-										mb="24px"
-										w={{ base: '100%', lg: 'fit-content' }}
-										borderRadius="20px"
-									>
-										<Input
-                    onChange={this.handleChange}
-											color="white"
-											bg="rgb(19,21,54)"
-											border="transparent"
-											borderRadius="20px"
-											fontSize="sm"
-											size="lg"
-											w={{ base: '100%', md: '160px' }}
-											maxW="100%"
-											h="46px"
-											type="text"
-											placeholder="Your FirstName"
-											name="FirstName"
-										/>
-									</GradientBorder>
-								</FormControl>
-								<FormControl>
-									<FormLabel ms="4px" fontSize="sm" fontWeight="normal" color="white">
-										LastName<span className="mendatory">*</span>
-									</FormLabel>
-									<GradientBorder
-										mb="24px"
-										w={{ base: '100%', lg: 'fit-content' }}
-										borderRadius="20px"
-									>
-										<Input
-                     onChange={this.handleChange}
-											color="white"
-											bg="rgb(19,21,54)"
-											border="transparent"
-											borderRadius="20px"
-											fontSize="sm"
-											size="lg"
-											w={{ base: '100%', md: '160px' }}
-											maxW="100%"
-											h="46px"
-											type="text"
-											placeholder="Your LastName"
-											name="LastName"
-										/>
-									</GradientBorder>
-								</FormControl>
-							</Flex>
-							<FormControl>
+                            <FormControl>
 								<FormLabel ms="4px" fontSize="sm" fontWeight="normal" color="white">
 									Email<span className="mendatory">*</span>
 								</FormLabel>
 								<GradientBorder mb="24px" w={{ base: '100%', lg: 'fit-content' }} borderRadius="20px">
 									<Input
-                  onChange={this.handleChange}
+                                      onChange={this.handleChange}
 										color="white"
 										bg="rgb(19,21,54)"
 										border="transparent"
@@ -221,14 +102,12 @@ toglle===true? (
 										name="Email"
 									/>
 								</GradientBorder>
-							</FormControl>
-							<FormControl>
-								<FormLabel ms="4px" fontSize="sm" fontWeight="normal" color="white">
-									Address<span className="mendatory">*</span>
+                                <FormLabel ms="4px" fontSize="sm" fontWeight="normal" color="white">
+									Password<span className="mendatory">*</span>
 								</FormLabel>
 								<GradientBorder mb="24px" w={{ base: '100%', lg: 'fit-content' }} borderRadius="20px">
 									<Input
-                  onChange={this.handleChange}
+                                      onChange={this.handleChange}
 										color="white"
 										bg="rgb(19,21,54)"
 										border="transparent"
@@ -237,50 +116,15 @@ toglle===true? (
 										size="lg"
 										w={{ base: '100%', md: '346px' }}
 										maxW="100%"
-										type="text"
-										placeholder="Your Address"
-                    name='Address'
+										h="46px"
+										type="password"
+										placeholder="Your Password"
+										name="Password"
 									/>
 								</GradientBorder>
+								</FormControl>
+                                </Flex>
 
-								<FormLabel ms="4px" fontSize="sm" fontWeight="normal" color="white">
-									PhoneNumber<span className="mendatory">*</span>
-								</FormLabel>
-								<GradientBorder mb="24px" w={{ base: '100%', lg: 'fit-content' }} borderRadius="20px">
-									<PhoneInput
-										placeholder="Enter Your phone number"
-										defaultCountry="TN"
-										limitMaxLength="8"
-                    value={PhoneNumber}
-                    onChange={ PhoneNumber  => this.setState({PhoneNumber:PhoneNumber })}									/>
-								</GradientBorder>
-								{/* <MuiPhoneNumber defaultCountry={'us'} />, */}
-							</FormControl>
-							<FormLabel ms="4px" fontSize="sm" fontWeight="normal" color="white">
-								Choose your Favoret Skills<span className="mendatory">*</span>
-							</FormLabel>
-							<FormControl>
-								<GradientBorder mb="24px" w={{ base: '100%', lg: 'fit-content' }} borderRadius="20px">
-									<Select placeholder="Select Your Skills" className="skills" onChange={(event)=>this.setState({Skills:event.target.value})}>
-										<option
-											value="Full StackJavaScript Web Developer"	className="yourselect">
-											Full StackJavaScript Web Developer
-										</option>
-										<option value="React Js" className="yourselect">
-											React Js
-										</option>
-										<option value="Introduction To web1" className="yourselect">
-											Introduction To web1
-										</option>
-									</Select>
-								</GradientBorder>
-							</FormControl>
-
-							<FormControl display="flex" alignItems="center">
-								{/* <DarkMode>
-                <Switch id='remember-login' colorScheme='brand' me='10px' />
-              </DarkMode> */}
-							</FormControl>
 							<Button
 								variant="brand"
 								fontSize="10px"
@@ -290,10 +134,10 @@ toglle===true? (
 								h="45"
 								mb="20px"
 								mt="20px"
-                // onKeyDown={()=>this.JoinOurcomunities()}
-                onClick={()=>this.JoinOurcomunities()}
+                
+                            //  onClick={()=>this.JoinOurcomunities()}
 							>
-								Join Us
+								SignIn
 							</Button>
 						</Flex>
 					</Flex>
@@ -345,7 +189,6 @@ toglle===true? (
 					</Box>
 				</Flex>
 			</Flex>
-		)
     )
-	}
+  }
 }

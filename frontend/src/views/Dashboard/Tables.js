@@ -22,7 +22,7 @@ import TablesProjectRow from "components/Tables/TablesProjectRow";
 import TablesTableRow from "components/Tables/TablesTableRow";
 
 // Data
-// import { tablesProjectData, tablesTableData } from "variables/general";
+import { tablesProjectData, tablesTableData } from "../../variables/general";
 
 
 // Icons
@@ -30,7 +30,7 @@ import { AiFillCheckCircle } from "react-icons/ai";
 
 function Tables() {
   return (
-    <Flex direction='column' pt={{ base: "120px", md: "75px" }}>
+    <Flex direction='column' pt={{ base: "120px", md: "175px" }}>
       {/* Authors Table */}
       <Card overflowX={{ sm: "scroll", xl: "hidden" }} pb='0px'>
         <CardHeader p='6px 0px 22px 0px'>
@@ -70,7 +70,7 @@ function Tables() {
                 <Th borderBottomColor='#56577A'></Th>
               </Tr>
              </Thead>
-            {/*<Tbody>
+            <Tbody>
               {tablesTableData.map((row, index, arr) => {
                 return (
                   <TablesTableRow
@@ -86,7 +86,7 @@ function Tables() {
                   />
                 );
               })}
-            </Tbody> */}
+            </Tbody>
           </Table>
         </CardBody>
       </Card>
@@ -146,7 +146,7 @@ function Tables() {
                 <Th borderBottomColor='#56577A'></Th>
               </Tr>
             </Thead>
-            {/* <Tbody>
+            <Tbody>
               {tablesProjectData.map((row, index, arr) => {
                 return (
                   <TablesProjectRow
@@ -160,7 +160,7 @@ function Tables() {
                   />
                 );
               })}
-            </Tbody> */}
+            </Tbody>
           </Table>
         </CardBody>
       </Card>

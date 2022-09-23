@@ -60,7 +60,7 @@ export default function Pages(props) {
     return activeNavbar;
   };
   const getRoutes = (routes) => {
-    return routes.map((prop, key) => {
+    return routes.map((prop, key,index) => {
       if (prop.collapse) {
         return getRoutes(prop.views);
       }
@@ -72,7 +72,7 @@ export default function Pages(props) {
           <Route
             path={prop.layout + prop.path}
             component={prop.component}
-            key={key}
+            key={index}
           />
         );
       } else {

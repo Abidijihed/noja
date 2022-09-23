@@ -18,7 +18,7 @@ import mymaterial from 'assets/img/mymaterial.jpg';
 // Custom components
 import Card from 'components/Card/Card.js';
 import CardHeader from 'components/Card/CardHeader.js';
-;
+
 // Icons
 
 import React,{useEffect } from 'react';
@@ -28,6 +28,11 @@ import './index.css';
 // const socket = socketIO.connect("http://localhost:3332");
 import axios from 'axios'
 export default function Dashboard() {
+	useEffect(()=>{
+		axios.get('http://localhost:3332/api/getadmin').then((res)=>{
+			sessionStorage.setItem('chek',res.data[0].Signin)
+		})
+	 })
 	//  useEffect(()=>{
 	// 	const reloadCount = sessionStorage.getItem('reloadCount');
 	// 	if(reloadCount < 1) {
@@ -41,7 +46,7 @@ export default function Dashboard() {
 
 	  
 	return (
-		<Flex flexDirection="column" pt={{ base: '120px', md: '75px' }}>
+		<Flex flexDirection="column" pt={{ base: '125px', md: '175px' }}>
 			<Grid
 				templateColumns={{ sm: '1fr', lg: '1.7fr 1.3fr' }}
 				maxW={{ sm: '100%', md: '100%' }}

@@ -273,10 +273,10 @@ function Billing() {
           </CardHeader>
           <CardBody>
             <Flex direction='column' w='100%'>
-              {invoicesData.map((row,key) => {
+              {invoicesData.map((row,key,index) => {
                 return (
                   <InvoicesRow
-                  key={key}
+                  key={index}
                     date={row.date}
                     code={row.code}
                     price={row.price}
@@ -300,10 +300,10 @@ function Billing() {
             </CardHeader>
             <CardBody>
               <Flex direction='column' w='100%'>
-                {billingData.map((row,key) => {
+                {billingData.map((row,key,index) => {
                   return (
                     <BillingRow
-                    key={key}
+                    key={index}
                       name={row.name}
                       company={row.company}
                       email={row.email}
@@ -351,10 +351,10 @@ function Billing() {
               <Text color='gray.400' fontSize='xs' mb='18px'>
                 NEWEST
               </Text>
-              {newestTransactions.map((row,key) => {
+              {newestTransactions.map((row,key,index) => {
                 return (
                   <TransactionRow
-                  key={key}
+                  key={index}
                     name={row.name}
                     logo={row.logo}
                     date={row.date}
@@ -365,10 +365,10 @@ function Billing() {
               <Text color='gray.400' fontSize='xs' my='18px'>
                 OLDER
               </Text>
-              {olderTransactions.map((row,key) => {
+              {olderTransactions.map((row,key,index) => {
                 return (
                   <TransactionRow
-                  key={key}
+                  key={index}
                     name={row.name}
                     logo={row.logo}
                     date={row.date}

@@ -17,9 +17,7 @@ import {
 } from "@chakra-ui/react";
 import IconBox from "components/Icons/IconBox";
 import noja from 'assets/img/zra.png'
-import { SimmmpleLogoWhite } from "components/Icons/Icons";
 import { Separator } from "components/Separator/Separator";
-import { SidebarHelp } from "components/Sidebar/SidebarHelp";
 import PropTypes from "prop-types";
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
@@ -35,7 +33,9 @@ function Sidebar(props) {
   let variantChange = "0.2s linear";
   // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName) => {
+
     return location.pathname === routeName ? "active" : "";
+   
   };
   // this function creates the links and collapses that appear in the sidebar (left menu)
   const createLinks = (routes) => {
@@ -47,7 +47,7 @@ function Sidebar(props) {
     let inactiveColor = "white";
     let sidebarActiveShadow = "none";
 
-    return routes.map((prop, key) => {
+    return routes.map((prop, key,index) => {
       if (prop.redirect) {
         return null;
       }
@@ -57,6 +57,7 @@ function Sidebar(props) {
         return (
           <>
             <Text
+            key={index}
               color={activeColor}
               fontWeight='bold'
               mb={{
@@ -72,7 +73,7 @@ function Sidebar(props) {
                 ? prop.rtlName
                 : prop.name}
             </Text>
-            {createLinks(prop.views)}
+            {/* {createLinks(prop.views)} */}
           </>
         );
       }
@@ -245,7 +246,6 @@ function Sidebar(props) {
             <Box>{links}</Box>
 
           </Stack>
-          {/* <SidebarHelp></SidebarHelp> */}
 
         </Box>
       </Box>
@@ -273,7 +273,7 @@ export function SidebarResponsive(props) {
     const activeColor = "white";
     const inactiveColor = "white";
 
-    return routes.map((prop, key) => {
+    return routes.map((prop, key,index) => {
       if (prop.redirect) {
         return null;
       }
@@ -298,13 +298,14 @@ export function SidebarResponsive(props) {
                 ? prop.rtlName
                 : prop.name}
             </Text>
-            {createLinks(prop.views)}
+            {/* {createLinks(prop.views)} */}
           </>
         );
       }
       return (
         <NavLink to={prop.layout + prop.path}>
           {activeRoute(prop.layout + prop.path) === "active" ? (
+           
             <Button
               boxSize='initial'
               justifyContent='flex-start'
@@ -411,18 +412,18 @@ export function SidebarResponsive(props) {
   //  BRAND
   //  Chakra Color Mode
   var brand = (
-    <Box pt={"35px"} mb='8px'>
+    <Box pt={"5px"} mb='5px'>
       <Link
-        href={`${process.env.PUBLIC_URL}/#/`}
+        href={`${process.env.PUBLIC_URL}/`}
         target='_blank'
         display='flex'
         lineHeight='100%'
-        mb='30px'
+        mb='10px'
         fontWeight='bold'
         justifyContent='center'
         alignItems='center'
         fontSize='11px'>
-          <img src={noja}/>
+          <img src={noja} width='200px' height='200px'/>
 
         {/* <SimmmpleLogoWhite w='22px' h='22px' me='10px' mt='2px' /> */}
         <Box
@@ -451,7 +452,7 @@ export function SidebarResponsive(props) {
         w='18px'
         h='18px'
         ref={btnRef}
-        colorScheme='teal'
+        colorscheme='teal'
         onClick={onOpen}
       />
       <Drawer
@@ -463,8 +464,8 @@ export function SidebarResponsive(props) {
         <DrawerContent
           backdropFilter='blur(10px)'
           bg='linear-gradient(111.84deg, rgba(6, 11, 38, 0.94) 59.3%, rgba(26, 31, 55, 0) 100%); '
-          w='250px'
-          maxW='250px'
+          w='300px'
+          maxW='300px'
           ms={{
             sm: "16px",
           }}
@@ -483,7 +484,6 @@ export function SidebarResponsive(props) {
               <Stack direction='column' mb='40px'>
                 <Box>{links}</Box>
               </Stack>
-              <SidebarHelp></SidebarHelp>
             </Box>
           </DrawerBody>
         </DrawerContent>

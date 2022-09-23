@@ -12,9 +12,22 @@
     text-align: center;
     line-height: 14px;
     border-radius: 10px;
-    vertical-align: middle;
+    /* vertical-align: middle; */
 }
 
 .jss154 {
     z-index: 4;
+}
+span.chakra-button__icon.css-1wh2kri {
+    color: blue;
+}
+.css-tear69{
+    overflow:hidden !important;
+
+}
+#ournoja{
+    justify-items: flex-start;
+    width: 100px;
+    height: 42px;
+    background-color: aliceblue;
 }

@@ -16,29 +16,30 @@ module.exports={
   }else if(!results.length && results===undefined){
     res.status(202).send("chek somthing went wrong!")
   }else{
-    var query=`INSERT INTO students(FirstName,LastName,Email,Address,PhoneNumber,Skills,Password,image,country,Zip,creatAt,originpassword) VALUES("${req.body.FirstName}","${req.body.LastName}","${req.body.Email}","${req.body.Address}","${req.body.PhoneNumber}","${req.body.Skills}","${passwordHashed}","${req.body.image}","${req.body.country}","${req.body.Zip}","${req.body.creatAt}","${req.body.Password}")`
+    let query=`INSERT INTO students(FirstName,LastName,Email,Address,PhoneNumber,Skills,Password,image,country,Zip,creatAt,originpassword) VALUES("${req.body.FirstName}","${req.body.LastName}","${req.body.Email}","${req.body.Address}","${req.body.PhoneNumber}","${req.body.Skills}","${passwordHashed}","${req.body.image}","${req.body.country}","${req.body.Zip}","${req.body.creatAt}","${req.body.Password}")`
     connection.query(query,(err,results)=>{
       if(err){
         res.status(500).send(err)
       }else{
         res.status(200).send("user created")
       }
-      console.log(results)
-      var query=`INSERT INTO admin(students_id,message,date,new) VALUES("${results.insertId}","${req.body.Email}","${req.body.creatAt}",${true})`
+      let query=`INSERT INTO adminnotfication(students_id,message,date,new) VALUES("${results.insertId}","${req.body.Email}","${req.body.creatAt}",${true})`
       connection.query(query,(err,result)=>{
            if(err){
-            res.status(500).send(err)
+            res.status(501).send(err)
            }else{
-            res.status(200).send('user join')
+            res.status(201).send('user join')
            }
       })
+    
     })
+    
   }
-     
+   
     })
 }),
 getnotificationadmin:((req,res)=>{
-const query='SELECT * FROM admin'
+const query='SELECT * FROM adminnotfication'
 connection.query(query,(err,result)=>{
 if(err){
   res.status(500).send(err)
@@ -48,7 +49,9 @@ if(err){
  
 })
 }),
-VerifyStudent :(req,res)=>{
+
+
+  VerifyStudent :(req,res)=>{
     var passwordHashed = crypto.createHash('sha256').update(req.body.Password, 'utf8').digest('hex')
     
     // var repeatepasswordHshed=crypto.createHash('sha256').update(req.body.repeatepassword, 'utf8').digest('hex')
@@ -66,7 +69,6 @@ VerifyStudent :(req,res)=>{
       }
     })
   },
-
   logout:(req,res)=>{
     session.delete(req.cookies.noja)
     .then((result)=>{
