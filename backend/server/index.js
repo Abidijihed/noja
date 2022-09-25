@@ -13,7 +13,7 @@ app.use(cors({
 }));
 
 app.use(cookieParser())
-app.set('port',3332);
+app.set('port',3306);
 app.use(express.json());
 app.use('/',mailrouter)
 app.use('/',routeradmin)
