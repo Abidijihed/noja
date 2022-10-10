@@ -20,7 +20,7 @@ import Card from 'components/Card/Card.js';
 import CardHeader from 'components/Card/CardHeader.js';
 
 // Icons
-
+import JoinUs from '../Pages/JoinUs'
 import React,{useEffect } from 'react';
 
 import './index.css';
@@ -253,54 +253,11 @@ export default function Dashboard() {
 					bgSize="cover"
 					bgPosition="50%"
 				>
-					<Text color="#fff" fontSize="lg" fontWeight="bold" mb="10px" textAlign="center" fontFamily="serif">
-						Our Coding Bootcamps Schedule
-					</Text>
-					<br />
-					<Row id='ourscaeule'>
-						<Col xs={8} md={3} id="leson">
-							<img id="goodthink" src="https://www.hubspot.com/hubfs/how-to-learn-coding.jpg" />
-							<Text color="#fff" fontSize="18px" fontFamily="serif" mb="4px" textDecoration="underline">
-								6 Weeks Onsite Junior Phase (Full Time)
-							</Text>
-							<Text color="#fff" fontSize="16px" fontFamily="cursive" mb="4px">
-								During weeks 1-4, you’ll learn Full Stack JavaScript and computer science fundamentals
-								by working through realistic code.<br />
-								One Week you'll learn HTML, CSS, and moree ... <br />
-								Your time will be spent on 2-day sprints, pair programming with classmates, and working
-								through real industry problems.<br />
-								The last week will hvae to work on solo project JavaScript (DOM), HTML,CSS
-							</Text>
-						</Col>
-						<Col xs={8} md={3} id="leson">
-						<img id="goodthink" src="https://www.hubspot.com/hubfs/how-to-learn-coding.jpg" />
-						<Text color="#fff" fontSize="18px" fontFamily="serif" mb="4px" textDecoration="underline">
-								14 Weeks Onsite Senior Phase (Full Time)
-							</Text>
-							<Text color="#fff" fontSize="16px" fontFamily="cursive" mb="4px">
-							During weeks 6-18, you’ll bring everything together, building complete applications and learning industry practice<br></br>
-                            We Will learn together the most famos technology,frameworks and library like ReactJs,NodeJs,My-SQL database etc...<br></br>
-							During weeks 18-20, you'll bring everything did you learn and start building project in a team <br></br>
-							We will working in two main project Full-Stack, MEAN Stack and MERN Stack 
-							</Text>
+								< JoinUs />
 
-						</Col>
-						<Col xs={8} md={3} id="leson">
-						<img id="goodthink" src="https://www.hubspot.com/hubfs/how-to-learn-coding.jpg" />
-							<Text color="#fff" fontSize="17px" fontFamily="serif" mb="4px" textDecoration="underline">
-								Before you ask a lecturer a question please try the following:
-							</Text>
-							<Text color="#fff" fontSize="14px" fontFamily="cursive" mb="4px">
-								Discuss it with your partner<br />
-								Look in the documentation<br />
-								Look at answers on Google and Stack Overflow<br />
-								Ask your neighbor
-							</Text>
-						</Col>
-						
-					</Row>
 				</Card>
 			</Grid>
+
 		</Flex>
 	);
 }

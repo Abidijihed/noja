@@ -7,7 +7,8 @@ import {
 	FormLabel,
 	Heading,
 	Input,
-	Text
+	Text,
+	Radio
 } from '@chakra-ui/react';
 import { Select } from '@chakra-ui/react';
 import 'react-phone-number-input/style.css';
@@ -90,14 +91,18 @@ height='500px'
 >
 <AlertIcon boxSize='40px' mr={0} />
 <AlertTitle mt={4} mb={1} fontSize='lg'>
-Application submitted!
+Welcome! TO NOJA <br></br>YOU Did Join The World OFF Success
 </AlertTitle>
-<AlertDescription maxWidth='sm'>
-Thanks for submitting your application. Our team will get back to you soon.
+<AlertDescription maxWidth='sm' size="20px">
+<h3>We don't go to sleep when we are thired we go to sleepwhen we are done
+
+If you are ready to start with us to reach your gols please check </h3>
+<Radio backgroundColor='white' margin='5px 5px' >
+	</Radio> 
 </AlertDescription>
 </Alert>
-<Button onClick={()=>this.goto()}>
-	weclome
+<Button onClick={()=>this.goto()}  alignItems="center">
+	Let'S Do It Together
 </Button>
 </Flex>
 		):

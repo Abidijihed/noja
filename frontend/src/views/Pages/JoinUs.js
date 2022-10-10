@@ -1,14 +1,5 @@
 // Chakra imports
-import {
-	Box,
-	Flex,
-	Button,
-	FormControl,
-	FormLabel,
-	Heading,
-	Input,
-	Text
-} from '@chakra-ui/react';
+import { Box, Flex, Button, FormControl, FormLabel, Heading, Input, Text } from '@chakra-ui/react';
 import { Select } from '@chakra-ui/react';
 import 'react-phone-number-input/style.css';
 import './SignIn.css';
@@ -22,12 +13,7 @@ import AuthFooter from 'components/Footer/AuthFooter';
 import GradientBorder from 'components/GradientBorder/GradientBorder';
 import React, { Component } from 'react';
 import axios from 'axios';
-import {
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
-} from '@chakra-ui/react'
+import { Alert, AlertIcon, AlertTitle, AlertDescription } from '@chakra-ui/react';
 export default class SignIn extends Component {
 	constructor() {
 		super();
@@ -39,88 +25,86 @@ export default class SignIn extends Component {
 			Address: '',
 			PhoneNumber: '',
 			Skills: '',
-      toglle:false
+			toglle: false
 		};
 	}
-	handleChange=(e)=> {
-		this.setState({[e.target.name]: e.target.value });
+	handleChange = (e) => {
+		this.setState({ [e.target.name]: e.target.value });
 		console.log(this.state);
-	}
+	};
 
-  generatePassword=()=> {
-    var length = 36,
-        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345678/%@?$£9",
-        retVal = "";
-    for (var i = 0, n = charset.length; i < length; ++i) {
-        retVal += charset.charAt(Math.floor(Math.random() * n));
-    }
-    return retVal;
-}
-  JoinOurcomunities (){
-  const {FirstName,LastName,Email,Address,PhoneNumber,Skills}=this.state
-    axios.post(`http://localhost:3332/api/createstudents`,{
-      FirstName:FirstName,
-      LastName:LastName,
-      Email:Email,
-      Address:Address,
-      PhoneNumber:PhoneNumber.toString(),
-      Skills:Skills,
-      Password:this.generatePassword(),
-      creatAt:new Date().toLocaleString()
-    }).then((res)=>{
-      if(res.status===200 && res.data==="user created"){
-        this.setState({toglle:true})
-        localStorage.setItem('user',"usere have ben submit")
-          
-      }
-    })
-  }
+	generatePassword = () => {
+		var length = 36,
+			charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345678/%@?$£9',
+			retVal = '';
+		for (var i = 0, n = charset.length; i < length; ++i) {
+			retVal += charset.charAt(Math.floor(Math.random() * n));
+		}
+		return retVal;
+	};
+	JoinOurcomunities() {
+		const { FirstName, LastName, Email, Address, PhoneNumber, Skills } = this.state;
+		axios
+			.post(`http://localhost:3332/api/createstudents`, {
+				FirstName: FirstName,
+				LastName: LastName,
+				Email: Email,
+				Address: Address,
+				PhoneNumber: PhoneNumber.toString(),
+				Skills: Skills,
+				Password: this.generatePassword(),
+				creatAt: new Date().toLocaleString()
+			})
+			.then((res) => {
+				if (res.status === 200 && res.data === 'user created') {
+					this.setState({ toglle: true });
+					localStorage.setItem('user', 'usere have ben submit');
+				}
+			});
+	}
 	render() {
 		const titleColor = 'white';
 		const textColor = 'gray.400';
-    const {PhoneNumber,toglle}=this.state
-    console.log(toglle)
+		const { PhoneNumber, toglle } = this.state;
+		console.log(toglle);
 
-    return (
-toglle===true? (
-  <Flex
-	   direction="column"
-		w="100%"
-		background="transparent"
-		mt={{ base: '50px', md: '50px', lg: '160px', xl: '250px' }}
-		mb={{ base: '60px', lg: '95px' }}
-		>
-<Alert
-  status='success'
-  variant='subtle'
-  flexDirection='column'
-  alignItems='center'
-  justifyContent='center'
-  textAlign='center'
-  width='100%'
-  height='500px'
->
-  <AlertIcon boxSize='40px' mr={0} />
-  <AlertTitle mt={4} mb={1} fontSize='lg'>
-    Application submitted!
-  </AlertTitle>
-  <AlertDescription maxWidth='sm'>
-    Thanks for submitting your application. Our team will get back to you soon.
-  </AlertDescription>
-</Alert>
-</Flex>
-        
-):
-		 (
+		return toglle === true ? (
+			<Flex
+				direction="column"
+				w="100%"
+				background="transparent"
+				mt={{ base: '50px', md: '50px', lg: '160px', xl: '250px' }}
+				mb={{ base: '60px', lg: '95px' }}
+			>
+				<Alert
+					status="success"
+					variant="subtle"
+					flexDirection="column"
+					alignItems="center"
+					justifyContent="center"
+					textAlign="center"
+					width="100%"
+					height="500px"
+				>
+					<AlertIcon boxSize="40px" mr={0} />
+					<AlertTitle mt={4} mb={1} fontSize="lg">
+						Application submitted!
+					</AlertTitle>
+					<AlertDescription maxWidth="sm">
+						Thanks for submitting your application. Our team will get back to you soon.
+					</AlertDescription>
+				</Alert>
+			</Flex>
+		) : (
 			<Flex position="relative">
-        {console.log(this.state)}
+				{console.log(this.state)}
 				<Flex
 					minH="100vh"
 					h={{ base: '120vh', lg: 'fit-content' }}
 					w="100%"
 					maxW="1044px"
 					mx="auto"
-					pt={{ sm: '100px', md: '0px' }}
+					pt={{ sm: '100px', md: '150px' }}
 					flexDirection="column"
 					me={{ base: 'auto', lg: '50px', xl: 'auto' }}
 				>
@@ -131,15 +115,9 @@ toglle===true? (
 						mx={{ base: 'auto', lg: 'unset' }}
 						ms={{ base: 'auto', lg: 'auto' }}
 						w={{ base: '100%', md: '50%', lg: '450px' }}
-						px="50px"
+						px="0px"
 					>
-						<Flex
-							direction="column"
-							w="100%"
-							background="transparent"
-							mt={{ base: '50px', md: '50px', lg: '160px', xl: '150px' }}
-							mb={{ base: '60px', lg: '95px' }}
-						>
+						<Flex direction="column" w="100%" background="transparent">
 							<Heading color={titleColor} fontSize="32px" mb="10px">
 								Nice to see you!
 							</Heading>
@@ -157,7 +135,7 @@ toglle===true? (
 										borderRadius="20px"
 									>
 										<Input
-                    onChange={this.handleChange}
+											onChange={this.handleChange}
 											color="white"
 											bg="rgb(19,21,54)"
 											border="transparent"
@@ -183,7 +161,7 @@ toglle===true? (
 										borderRadius="20px"
 									>
 										<Input
-                     onChange={this.handleChange}
+											onChange={this.handleChange}
 											color="white"
 											bg="rgb(19,21,54)"
 											border="transparent"
@@ -206,7 +184,7 @@ toglle===true? (
 								</FormLabel>
 								<GradientBorder mb="24px" w={{ base: '100%', lg: 'fit-content' }} borderRadius="20px">
 									<Input
-                  onChange={this.handleChange}
+										onChange={this.handleChange}
 										color="white"
 										bg="rgb(19,21,54)"
 										border="transparent"
@@ -228,7 +206,7 @@ toglle===true? (
 								</FormLabel>
 								<GradientBorder mb="24px" w={{ base: '100%', lg: 'fit-content' }} borderRadius="20px">
 									<Input
-                  onChange={this.handleChange}
+										onChange={this.handleChange}
 										color="white"
 										bg="rgb(19,21,54)"
 										border="transparent"
@@ -239,7 +217,7 @@ toglle===true? (
 										maxW="100%"
 										type="text"
 										placeholder="Your Address"
-                    name='Address'
+										name="Address"
 									/>
 								</GradientBorder>
 
@@ -250,9 +228,10 @@ toglle===true? (
 									<PhoneInput
 										placeholder="Enter Your phone number"
 										defaultCountry="TN"
-										limitMaxLength='8'
-                    value={PhoneNumber}
-                    onChange={ PhoneNumber  => this.setState({PhoneNumber:PhoneNumber })}									/>
+										limitMaxLength="8"
+										value={PhoneNumber}
+										onChange={(PhoneNumber) => this.setState({ PhoneNumber: PhoneNumber })}
+									/>
 								</GradientBorder>
 								{/* <MuiPhoneNumber defaultCountry={'us'} />, */}
 							</FormControl>
@@ -261,9 +240,12 @@ toglle===true? (
 							</FormLabel>
 							<FormControl>
 								<GradientBorder mb="24px" w={{ base: '100%', lg: 'fit-content' }} borderRadius="20px">
-									<Select placeholder="Select Your Skills" className="skills" onChange={(event)=>this.setState({Skills:event.target.value})}>
-										<option
-											value="Full StackJavaScript Web Developer"	className="yourselect">
+									<Select
+										placeholder="Select Your Skills"
+										className="skills"
+										onChange={(event) => this.setState({ Skills: event.target.value })}
+									>
+										<option value="Full StackJavaScript Web Developer" className="yourselect">
 											Full StackJavaScript Web Developer
 										</option>
 										<option value="React Js" className="yourselect">
@@ -290,8 +272,8 @@ toglle===true? (
 								h="45"
 								mb="20px"
 								mt="20px"
-                // onKeyDown={()=>this.JoinOurcomunities()}
-                onClick={()=>this.JoinOurcomunities()}
+								// onKeyDown={()=>this.JoinOurcomunities()}
+								onClick={() => this.JoinOurcomunities()}
 							>
 								Join Us
 							</Button>
@@ -303,7 +285,7 @@ toglle===true? (
 						ms={{ base: 'auto', lg: 'auto' }}
 						mb="80px"
 					>
-						<AuthFooter />
+						{/* <AuthFooter /> */}
 					</Box>
 					<Box
 						display={{ base: 'none', lg: 'block' }}
@@ -317,8 +299,8 @@ toglle===true? (
 					>
 						<Box
 							bgImage={signInImage}
-							w="100%"
-							h="100%"
+							w="80%"
+							h="80%"
 							bgSize="cover"
 							bgPosition="50%"
 							position="absolute"
@@ -345,7 +327,6 @@ toglle===true? (
 					</Box>
 				</Flex>
 			</Flex>
-		)
-    )
+		);
 	}
 }

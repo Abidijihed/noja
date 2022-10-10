@@ -30,6 +30,8 @@ import { NavLink } from "react-router-dom";
 import routes from "routes.js";
 import { BellIcon, SearchIcon } from '@chakra-ui/icons';
 import "./zed.css"
+import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
+
 export default function AuthNavbar(props) {
   
   const [open, setOpen] = React.useState(false);
@@ -144,6 +146,18 @@ export default function AuthNavbar(props) {
           variant='transparent-with-icon'
           leftIcon={<InfoIcon color='blue !important' w='15px' h='15px' me='0px' />}>
           <Text>About</Text>
+        </Button>
+      </NavLink>
+      <NavLink to='/auth/JoinUs'>            
+        <Button
+          fontSize='sm'
+          ms='0px'
+          px='0px'
+          me={{ sm: "2px", md: "16px" }}
+          color={navbarIcon}
+          variant='transparent-with-icon'
+          leftIcon={<AppRegistrationIcon color='blue !important' w='15px' h='15px' me='0px' />}>
+          <Text>JoinUs</Text>
         </Button>
       </NavLink>
 
