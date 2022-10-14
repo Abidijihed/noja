@@ -12,8 +12,8 @@ app.use(cookieParser())
 app.set('port',3332);
 app.use(express.json());
 // app.use('/',mailrouter)
-app.use('/',routeradmin)
-app.use('/',routerstudents)
+// app.use('/',routeradmin)
+// app.use('/',routerstudents)
 
 
 module.exports = app
