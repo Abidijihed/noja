@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const connection = mysql.createConnection({
   host: 'db-mysql-fra1-44899-do-user-11624328-0.b.db.ondigitalocean.com',
   user: 'jihed',
