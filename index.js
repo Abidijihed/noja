@@ -12,5 +12,5 @@ app.get('*', (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`app listening at http://local:${port}`);
+  console.log(`app listening at http://localhost:${port}`);
 });
