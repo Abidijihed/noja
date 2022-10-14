@@ -6,11 +6,7 @@ const {routerstudents}=require('./routers/StudentRouter')
 const {routeradmin}=require ('./routers/AdminRouter')
 const {mailrouter}=require('./routers/MailRouter')
 const cors = require('cors');
-app.use(cors({
-    origin:'http://localhost:3000', 
-    credentials:false,            //access-control-allow-credentials:true
-    optionSuccessStatus:200
-}));
+app.use(cors());
 
 app.use(cookieParser())
 app.set('port',3332);
