@@ -6,9 +6,11 @@ const connection = mysql.createConnection({
   password: 'AVNS_blS-FZtYk_U9Le2zKtr',
   database: 'noja',
 });
-connection.connect((err) => {
-  if (err) throw err;
-  console.log('Connected!');
+connection.connect()
+connection.query('SELECT * from students', function(err, rows, fields) {
+  if(err) console.log(err);
+  console.log('The solution is: ', rows);
+  connection.end();
 });
 
 module.exports = {connection}
