@@ -6,7 +6,7 @@ const connection = mysql.createConnection({
   password: 'Ji31826832',
   database: 'noja',
 });
-connection.connect()
+// connection.connect()
 connection.query('SELECT * from students', function(err, rows, fields) {
   if(err) console.log(err);
   console.log('The solution is: ', rows);

@@ -2,9 +2,7 @@ const express = require("express");
 const app = express();
 const cookieParser = require('cookie-parser');
 require("dotenv").config();
-const {routerstudents}=require('./routers/StudentRouter')
-const {routeradmin}=require ('./routers/AdminRouter')
-const {mailrouter}=require('./routers/MailRouter')
+
 const cors = require('cors');
 app.use(cors());
 
