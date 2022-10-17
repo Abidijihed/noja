@@ -11,5 +11,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`app listening at http://localhost:${port}`);
+  console.log("Backend server is running!");
 });
