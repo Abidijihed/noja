@@ -10,14 +10,14 @@ const cookieParser = require('cookie-parser');
 app.use(cookieParser())
 
 const connection = mysql.createConnection({
-  host: 'localhost',
+  host:'localhost',
   port:3332,
   user: 'root',
   password: 'Ji31826832',
   database: '$noja_db',
 });
 app.get('/',(req,res)=>{
-  connection.query('INSERT INTO students (FirstName) VALUES ("jihed");',
+  connection.query('INSERT INTO students(FirstName) VALUES ("jihed");',
   function(err,results,fields){
     console.log(results)
     res.send('persson created')
