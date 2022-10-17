@@ -7,7 +7,6 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "nodemon ./index.js",
         "build": "cd frontend && npm install && npm run build"
-
     },
     "author": "jihed abidi",
     "license": "noja",
@@ -19,7 +18,7 @@
         "cookie-parser": "^1.4.5",
         "cors": "^2.8.5",
         "dotenv": "^16.0.1",
-        "express": "^4.18.1",
+        "express": "^4.18.2",
         "express-flash": "^0.0.2",
         "express-session": "^1.17.1",
         "http-proxy-middleware": "^2.0.6",
@@ -31,7 +30,7 @@
         "nodemailer": "^6.7.8",
         "nodemon": "^2.0.7",
         "router": "^1.3.5",
-        "socket.io": "^4.5.2",
+        "socket.io": "^4.5.3",
         "socket.io-client": "^4.5.1",
         "stripe": "^8.146.0",
         "uuid": "^8.3.2"

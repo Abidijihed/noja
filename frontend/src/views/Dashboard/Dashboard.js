@@ -21,8 +21,9 @@ import CardHeader from 'components/Card/CardHeader.js';
 
 // Icons
 import JoinUs from '../Pages/JoinUs'
-import React,{useEffect } from 'react';
-
+import React,{useEffect ,useState} from 'react';
+import socketIOClient from "socket.io-client";
+// const socket = socketIO.connect('http://localhost:3332');
 import './index.css';
 // import socketIO from "socket.io-client";
 // const socket = socketIO.connect("http://localhost:3332");
@@ -33,6 +34,15 @@ export default function Dashboard() {
 			sessionStorage.setItem('chek',res.data[0].Signin)
 		})
 	 })
+// 	const [response, setResponse] = useState("");
+
+//   useEffect(() => {
+//     const socket = socketIOClient(ENDPOINT);
+//     socket.on("FromAPI", data => {
+//       setResponse(data);
+// 	  console.log(data,'hello')
+//     });
+//   }, []);
 	//  useEffect(()=>{
 	// 	const reloadCount = sessionStorage.getItem('reloadCount');
 	// 	if(reloadCount < 1) {
@@ -47,6 +57,7 @@ export default function Dashboard() {
 	  
 	return (
 		<Flex flexDirection="column" pt={{ base: '125px', md: '175px' }}>
+		{console.log(response,'youyou')}
 			<Grid
 				templateColumns={{ sm: '1fr', lg: '1.7fr 1.3fr' }}
 				maxW={{ sm: '100%', md: '100%' }}
