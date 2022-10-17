@@ -11,7 +11,7 @@ const app = express();
 
 const connection = mysql.createConnection({
   host:'localhost',
-  // port:5000,
+  port:5000,
   user: 'root',
   password: 'Ji31826832',
   database: '$noja_db',
