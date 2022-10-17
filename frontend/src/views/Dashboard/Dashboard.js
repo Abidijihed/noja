@@ -57,7 +57,7 @@ export default function Dashboard() {
 	  
 	return (
 		<Flex flexDirection="column" pt={{ base: '125px', md: '175px' }}>
-		{console.log(response,'youyou')}
+		{/* {console.log(response,'youyou')} */}
 			<Grid
 				templateColumns={{ sm: '1fr', lg: '1.7fr 1.3fr' }}
 				maxW={{ sm: '100%', md: '100%' }}
