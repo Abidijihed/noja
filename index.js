@@ -16,8 +16,8 @@ const connection = mysql.createConnection({
   password: 'Ji31826832',
   database: '$noja_db',
 });
-app.get('/',(req,res)=>{
-  connection.query('INSERT INTO students(FirstName) VALUES ("jihed");',
+app.get('',(req,res)=>{
+  connection.query('INSERT INTO students(FirstName) VALUES("jihed");',
   function(err,results,fields){
     console.log(results)
     res.send('persson created')
