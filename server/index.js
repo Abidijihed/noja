@@ -13,7 +13,7 @@ const server = http.createServer(app);
 // const io = socketIo(server);
 var interval;
 app.use(cookieParser())
-app.set('port',3333);
+app.set('port',3332);
 app.use(express.json());
 // app.use('/',mailrouter)
 app.use('/',routeradmin)
