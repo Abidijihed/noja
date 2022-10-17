@@ -1,13 +1,14 @@
-const app = require("./server/index");
-const express = require("express");
-
-const port = app.get("port");
+// const app = require("./server/index");
+const express = require("express")
+const mysql = require('mysql2');
+const app = express();
+// const port = app.get("port");
 // const { createProxyMiddleware } = require('http-proxy-middleware');
 // const path = require("path");
 // app.use(express.static(path.resolve(__dirname, './frontend/build')));
+const cookieParser = require('cookie-parser');
+app.use(cookieParser())
 
-
-const mysql = require('mysql2');
 const connection = mysql.createConnection({
   host: 'localhost',
   port:3332,
@@ -33,6 +34,6 @@ app.get('/get',(req,res)=>{
 // app.get('*', (req, res) => {
 //   res.sendFile(path.resolve(__dirname, './frontend/build', 'index.html'));
 // });
-app.listen(port, () => {
+app.listen(3332, () => {
   console.log("Backend server is running!");
 });
