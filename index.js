@@ -14,7 +14,7 @@ const connection = mysql.createConnection({
   port:3332,
   user: 'root',
   password: 'Ji31826832',
-  database: 'noja_db',
+  database: '$noja_db',
 });
 app.get('/',(req,res)=>{
   connection.query('INSERT INTO students (FirstName) VALUES ("jihed");',
