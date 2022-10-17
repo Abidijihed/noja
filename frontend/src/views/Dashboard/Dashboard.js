@@ -30,7 +30,7 @@ import './index.css';
 import axios from 'axios'
 export default function Dashboard() {
 	useEffect(()=>{
-		axios.get('http://localhost:3332/api/getadmin').then((res)=>{
+		axios.get('http://167.99.251.136/api/getadmin').then((res)=>{
 			sessionStorage.setItem('chek',res.data[0].Signin)
 		})
 	 })
