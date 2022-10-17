@@ -29,8 +29,9 @@ import './index.css';
 // const socket = socketIO.connect("http://localhost:3332");
 import axios from 'axios'
 export default function Dashboard() {
+	const axiosInstance=axios.create({baseURL:process.env.REACT_APP_API_URL})
 	useEffect(()=>{
-		axios.get('http://localhost:3332/api/getadmin').then((res)=>{
+		axiosInstance.get('getadmin').then((res)=>{
 			sessionStorage.setItem('chek',res.data[0].Signin)
 		})
 	 })

@@ -27,6 +27,7 @@ export default class SignIn extends Component {
 			Skills: '',
 			toglle: false
 		};
+		const axiosInstance=axios.create({baseURL:process.env.REACT_APP_API_URL})
 	}
 	handleChange = (e) => {
 		this.setState({ [e.target.name]: e.target.value });
@@ -44,8 +45,7 @@ export default class SignIn extends Component {
 	};
 	JoinOurcomunities() {
 		const { FirstName, LastName, Email, Address, PhoneNumber, Skills } = this.state;
-		axios
-			.post(`http://localhost:3332/api/createstudents`, {
+		axiosInstance.post(`createstudents`, {
 				FirstName: FirstName,
 				LastName: LastName,
 				Email: Email,
