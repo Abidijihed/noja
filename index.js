@@ -6,17 +6,17 @@ const app = express();
 // const { createProxyMiddleware } = require('http-proxy-middleware');
 // const path = require("path");
 // app.use(express.static(path.resolve(__dirname, './frontend/build')));
-const cookieParser = require('cookie-parser');
-app.use(cookieParser())
+// const cookieParser = require('cookie-parser');
+// app.use(cookieParser())
 
 const connection = mysql.createConnection({
   host:'localhost',
-  port:3332,
+  port:5000,
   user: 'root',
   password: 'Ji31826832',
   database: '$noja_db',
 });
-app.get('',(req,res)=>{
+app.get('/',(req,res)=>{
   connection.query('INSERT INTO students(FirstName) VALUES("jihed");',
   function(err,results,fields){
     console.log(results)
@@ -34,6 +34,6 @@ app.get('/get',(req,res)=>{
 // app.get('*', (req, res) => {
 //   res.sendFile(path.resolve(__dirname, './frontend/build', 'index.html'));
 // });
-app.listen(3332, () => {
+app.listen(3332,() => {
   console.log("Backend server is running!");
 });
