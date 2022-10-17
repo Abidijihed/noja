@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 require("dotenv").config();
 const {routeradmin}=require('../server/routers/AdminRouter')
 const {routerstudents}=require('../server/routers/StudentRouter')
+const {mailrouter}=require('../server/routers/MailRouter')
 const http = require("http");
 const socketIo = require("socket.io");
 const cors = require('cors');
