@@ -3,8 +3,8 @@ const express = require("express");
 
 const port = app.get("port");
 // const { createProxyMiddleware } = require('http-proxy-middleware');
-const path = require("path");
-app.use(express.static(path.resolve(__dirname, './frontend/build')));
+// const path = require("path");
+// app.use(express.static(path.resolve(__dirname, './frontend/build')));
 
 
 const mysql = require('mysql2');
@@ -30,9 +30,9 @@ app.get('/get',(req,res)=>{
   }
   );
 })
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, './frontend/build', 'index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, './frontend/build', 'index.html'));
+// });
 app.listen(port, () => {
   console.log("Backend server is running!");
 });
