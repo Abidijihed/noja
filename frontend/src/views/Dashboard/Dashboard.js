@@ -23,15 +23,15 @@ import CardHeader from 'components/Card/CardHeader.js';
 import JoinUs from '../Pages/JoinUs'
 import React,{useEffect ,useState} from 'react';
 import socketIOClient from "socket.io-client";
-// const socket = socketIO.connect('http://localhost:3332');
+// const socket = socketIO.connect('http://localhost:5000');
 import './index.css';
 // import socketIO from "socket.io-client";
-// const socket = socketIO.connect("http://localhost:3332");
+// const socket = socketIO.connect("http://localhost:5500");
 import axios from 'axios'
 export default function Dashboard() {
-	const axiosInstance=axios.create({baseURL:process.env.REACT_APP_API_URL})
+	// const axiosInstance=axios.create({baseURL:process.env.REACT_APP_API_URL})
 	useEffect(()=>{
-		axiosInstance.get('getadmin').then((res)=>{
+		axios.get('http://localhost:5500/api/getadmin').then((res)=>{
 			sessionStorage.setItem('chek',res.data[0].Signin)
 		})
 	 })

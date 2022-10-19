@@ -25,8 +25,8 @@ export default class SignIn extends Component {
 			Address: '',
 			PhoneNumber: '',
 			Skills: '',
-			toglle: false,
-			axiosInstance:axios.create({baseURL:process.env.REACT_APP_API_URL})
+			toglle: false
+			// axiosInstance:axios.create({baseURL:process.env.REACT_APP_API_URL})
 		};
 		
 	}
@@ -45,8 +45,8 @@ export default class SignIn extends Component {
 		return retVal;
 	};
 	JoinOurcomunities() {
-		const { FirstName, LastName, Email, Address, PhoneNumber, Skills,axiosInstance } = this.state;
-		axiosInstance.post(`createstudents`, {
+		const { FirstName, LastName, Email, Address, PhoneNumber, Skills } = this.state;
+		axios.post(`http://localhost:5500/api/createstudents`, {
 				FirstName: FirstName,
 				LastName: LastName,
 				Email: Email,

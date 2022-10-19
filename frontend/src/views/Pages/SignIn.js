@@ -51,7 +51,7 @@ export default class SignIn extends Component {
 	StudentSignIn(e){
 		e.preventDefault();
 		const {Password,Email}=this.state
-		axios.post('http://167.99.251.136/api/login',{
+		axios.post('http://localhost:5500/api/login',{
                Email:Email,
 			   Password:Password
 		}).then((res)=>{
