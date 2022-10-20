@@ -31,7 +31,7 @@ import axios from 'axios'
 export default function Dashboard() {
 	// const axiosInstance=axios.create({baseURL:process.env.REACT_APP_API_URL})
 	useEffect(()=>{
-		axios.get('http://localhost:5500/api/getadmin').then((res)=>{
+		axios.get('http://localhost:5500/').then((res)=>{
 			sessionStorage.setItem('chek',res.data[0].Signin)
 		})
 	 })
