@@ -84,7 +84,7 @@ export default class Contact extends Component {
 		e.preventDefault();
 const {FullName,Email,Subject,Message}=this.state
 
-		axios.post('http://localhost:5500/api/sendmail',{
+		axios.post('http://159.223.170.39/api/sendmail',{
 			FullName:FullName,
 			Email:Email,
 			Subject:Subject,

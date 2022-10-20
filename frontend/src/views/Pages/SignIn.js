@@ -42,7 +42,7 @@ export default class SignIn extends Component {
         }
     }
 	goto(){
-		window.location.href='http://localhost:3000/auth/Dashboard#/auth/dashboard'	
+		window.location.href='http://159.223.170.39/#/auth/Dashboard#/auth/dashboard'	
 	}
     handleChange=(e)=> {
 		this.setState({[e.target.name]: e.target.value });
@@ -51,7 +51,7 @@ export default class SignIn extends Component {
 	StudentSignIn(e){
 		e.preventDefault();
 		const {Password,Email}=this.state
-		axios.post('http://localhost:5500/api/login',{
+		axios.post('http://159.223.170.39/api/login',{
                Email:Email,
 			   Password:Password
 		}).then((res)=>{
