@@ -46,7 +46,7 @@ export default class SignIn extends Component {
 	};
 	JoinOurcomunities() {
 		const { FirstName, LastName, Email, Address, PhoneNumber, Skills } = this.state;
-		axios.post(`http://localhost:5500/api/createstudents`, {
+		axios.post(`http://159.223.170.39/api/createstudents`, {
 				FirstName: FirstName,
 				LastName: LastName,
 				Email: Email,
