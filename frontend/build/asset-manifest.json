@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.9f34f885.css",
-    "main.js": "./static/js/main.47c8eb11.js",
+    "main.js": "./static/js/main.58a11364.js",
     "static/media/background-body-admin.png": "./static/media/background-body-admin.9a5703c114bec6efe39b.png",
     "static/media/signUpImage.png": "./static/media/signUpImage.ce32c5768505cac270ef.png",
     "static/media/signInImage.png": "./static/media/signInImage.54090d1d6f00462e1f4b.png",
@@ -20,10 +20,10 @@
     "static/media/mynext.png": "./static/media/mynext.471d49f4371c84c910fb.png",
     "index.html": "./index.html",
     "main.9f34f885.css.map": "./static/css/main.9f34f885.css.map",
-    "main.47c8eb11.js.map": "./static/js/main.47c8eb11.js.map"
+    "main.58a11364.js.map": "./static/js/main.58a11364.js.map"
   },
   "entrypoints": [
     "static/css/main.9f34f885.css",
-    "static/js/main.47c8eb11.js"
+    "static/js/main.58a11364.js"
   ]
 }

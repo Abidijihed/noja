@@ -30,11 +30,11 @@ import './index.css';
 import axios from 'axios'
 export default function Dashboard() {
 	// const axiosInstance=axios.create({baseURL:process.env.REACT_APP_API_URL})
-	useEffect(()=>{
-		axios.get('http://159.223.170.39/api/getadmin').then((res)=>{
-			sessionStorage.setItem('chek',res.data[0].Signin)
-		})
-	 })
+	// useEffect(()=>{
+	// 	axios.get('http://159.223.170.39/api/getadmin').then((res)=>{
+	// 		sessionStorage.setItem('chek',res.data[0].Signin)
+	// 	})
+	//  })
 // 	const [response, setResponse] = useState("");
 
 //   useEffect(() => {
@@ -44,16 +44,16 @@ export default function Dashboard() {
 // 	  console.log(data,'hello')
 //     });
 //   }, []);
-	//  useEffect(()=>{
-	// 	const reloadCount = sessionStorage.getItem('reloadCount');
-	// 	if(reloadCount < 1) {
-	// 	  sessionStorage.setItem('reloadCount', String(reloadCount + 1));
-	// 	  window.location.reload();
-	// 	} else {
-	// 	  sessionStorage.removeItem('reloadCount');
-	// 	}
+	 useEffect(()=>{
+		const reloadCount = sessionStorage.getItem('reloadCount');
+		if(reloadCount < 1) {
+		  sessionStorage.setItem('reloadCount', String(reloadCount + 1));
+		  window.location.reload();
+		} else {
+		  sessionStorage.removeItem('reloadCount');
+		}
 	
-	//   })
+	  })
 
 	  
 	return (

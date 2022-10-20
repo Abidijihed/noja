@@ -60,6 +60,9 @@ export default class SignIn extends Component {
 				if (res.status === 200 && res.data === 'user created') {
 					this.setState({ toglle: true });
 					localStorage.setItem('user', 'usere have ben submit');
+					setTimeout(()=>{
+						window.location.href="http://159.223.170.39/#/auth/Dashboard"
+					},2000)
 				}
 			});
 	}

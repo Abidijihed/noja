@@ -57,7 +57,7 @@ const onveriveconnection=sessionStorage.getItem('_stud')
     },
     {
       path: "/Sudents",
-      name: "Sudents",
+      name: "Students",
       rtlName: "لوحة القيادة",
       icon: <StatsIcon color='inherit' />,
       component: Sudents,
